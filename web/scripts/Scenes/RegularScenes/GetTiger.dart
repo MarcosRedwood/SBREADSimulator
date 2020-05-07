@@ -120,7 +120,7 @@ class GetTiger extends Scene{
 		for(num i = 0; i<this.deadPlayersToGodTier.length; i++){
 			Player p = this.deadPlayersToGodTier[i];
 			if(p.godDestiny) p.makeGodTier(); //god destiny can be set to false if you didn't have anywhere to god tier
-			if(p.aspect == Aspects.SAUCE) {
+			if(p.aspect == Aspects.CANT) {
 				ret += "<br><Br>...  Huh. What... what even happened there? Is that a SAUCE player? WTF? That's not canon... Fucking Shogun...";
 			}
 		}

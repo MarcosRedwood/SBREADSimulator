@@ -50,7 +50,7 @@ class Sylph extends SBURBClass {
         new AssociatedStat(Stats.SBURB_LORE, 0.1, false)
     ]);
 
-    Sylph() : super("Sylph", 5, true);
+    Sylph() : super("Ark", 5, true);
 
 
     @override

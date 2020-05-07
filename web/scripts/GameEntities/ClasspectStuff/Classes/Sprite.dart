@@ -44,7 +44,7 @@ class Maid extends SBURBClass {
     @override
     bool isHelpful = true;
 
-    Maid() : super("Maid", 0, true);
+    Maid() : super("Sprite", 0, true);
     
     //TG was here
     

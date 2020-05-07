@@ -44,7 +44,7 @@ class Seer extends SBURBClass {
     @override
     bool isHelpful = false;
 
-    Seer() : super("Seer", 6, true);
+    Seer() : super("Paul", 6, true);
 
 
     @override

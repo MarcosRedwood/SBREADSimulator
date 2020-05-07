@@ -234,7 +234,7 @@ class Strife {
     void rocksFallEverybodyDies(Element div) {
         //session.logger.info("AB: Rocks fall, everybody dies in session: ${session.session_id.toString()}");
         appendHtml(div, "<Br><Br> In case you forgot, freaking METEORS have been falling onto the battlefield this whole time. This battle has been going on for so long that, literally, rocks fall, everybody dies.  ");
-        var spacePlayer = findAspectPlayer(session.players, Aspects.SPACE);
+        var spacePlayer = findAspectPlayer(session.players, Aspects.SPEAR);
         session.stats.rocksFell = true;
         spacePlayer.landLevel = 0.0; //can't deploy a frog if skaia was just destroyed. my test session helpfully reminded me of this 'cause one of the players god tier revived adn then used the sick frog to combo session. ...that...shouldn't happen.
         killEveryone("from terminal meteors to the face");
@@ -480,7 +480,7 @@ class Team implements Comparable<Team> {
         for (GameEntity member in members) {
             if (member is Player) {
                 Player p = member;
-                if (p.aspect == Aspects.TIME) timePlayers.add(p);
+                if (p.aspect == Aspects.KNIFE) timePlayers.add(p);
             }
             if (!member.dead && member.session.rand.nextDouble() > .75) {
                 session.removeAvailablePlayer(member);
@@ -511,7 +511,7 @@ class Team implements Comparable<Team> {
         } else {
             if (backup is Player) {
                 Player p = backup;
-                if (p.aspect == Aspects.TIME && p.session.rand.nextDouble() > .5) {
+                if (p.aspect == Aspects.KNIFE && p.session.rand.nextDouble() > .5) {
                     Drawing.drawTimeGears(canvasDiv);
                     //console.log("summoning a stable time loop player to this fight. " +this.session.session_id)
                     appendHtml(div, "The " + backup.htmlTitleHP() + " has joined the Strife!!! (Don't worry about the time bullshit, they have their stable time loops on LOCK. No doom for them.)");

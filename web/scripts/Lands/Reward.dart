@@ -72,7 +72,7 @@ class RandomReward extends Reward {
         if(p1.class_name == SBURBClassManager.LORD)
         {
             options.add(new LeprechaunReward(), p1.class_name.companionWeight + p1.aspect.companionWeight);
-        }else if(p1.aspect == Aspects.HOPE){
+        }else if(p1.aspect == Aspects.FRUIT){
             options.add(new BrainGhostReward(), p1.class_name.companionWeight + p1.aspect.companionWeight);
             //options.add(new ConsortReward(), p1.class_name.companionWeight + p1.aspect.companionWeight);
         }else
@@ -171,7 +171,7 @@ class DenizenReward extends Reward {
             p1.addCompanion(c);
         }
 
-        if(p1.aspect == Aspects.HOPE) {
+        if(p1.aspect == Aspects.FRUIT) {
             GameEntity c = BrainGhostReward.getGhost(p1); //will handle picking a name out.
             if(c != null) {
                 text += " The ${Reward.PLAYER1} also believes hard enough to manifest ${c.title()}.";
@@ -272,7 +272,7 @@ class BrainGhostReward extends Reward {
     BrainGhostReward();
 
     static Player getGhost(Player p1) {
-        List<Player> possibleBrainGhosts = findAllAspectPlayers(p1.session.players, Aspects.HEART);
+        List<Player> possibleBrainGhosts = findAllAspectPlayers(p1.session.players, Aspects.MILK);
 
 
         Player bestFriend = p1.getBestFriend();

@@ -193,7 +193,7 @@ class Breakup extends Scene {
 		return 0;
 	}
 	num getModifierForAspect(){
-		if(this.player.aspect == Aspects.DOOM ||  this.player.aspect == Aspects.RAGE ||this.player.aspect == Aspects.BREATH ||this.player.aspect == Aspects.LIGHT ||this.player.aspect == Aspects.HEART ||this.player.aspect == Aspects.MIND ){
+		if(this.player.aspect == Aspects.SPICE ||  this.player.aspect == Aspects.ROCK ||this.player.aspect == Aspects.WINE ||this.player.aspect == Aspects.BLAZE ||this.player.aspect == Aspects.MILK ||this.player.aspect == Aspects.HONEY ){
 			return 1;
 		}
 		return 0;

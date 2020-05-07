@@ -478,16 +478,16 @@ abstract class Drawing {
         //CanvasElement canvasBuffer = getBufferCanvas(SimController.canvasTemplateWidth, SimController.canvasTemplateHeight);
 
         //leave room on left for possible 'guide' player.
-        if (enablingAspect.isThisMe(Aspects.LIFE)) {
+        if (enablingAspect.isThisMe(Aspects.OIL)) {
             drawWhatever(canvas, "afterlife_life.png");
-        } else if (enablingAspect.isThisMe(Aspects.DOOM)) {
+        } else if (enablingAspect.isThisMe(Aspects.SPICE)) {
             drawWhatever(canvas, "afterlife_doom.png");
         }
         copyTmpCanvasToRealCanvasAtPos(canvas, pSpriteBuffer, 200, 0);
         copyTmpCanvasToRealCanvasAtPos(canvas, gSpriteBuffer, 500, 0);
-        if (enablingAspect ==  Aspects.DOOM) {
+        if (enablingAspect ==  Aspects.SPICE) {
             drawWhatever(canvas, "life_res.png");
-        } else if (enablingAspect.isThisMe(Aspects.DOOM)) {
+        } else if (enablingAspect.isThisMe(Aspects.SPICE)) {
             drawWhatever(canvas, "doom_res.png");
         }
         return canvas; //so enabling player can draw themselves on top
@@ -1641,7 +1641,7 @@ abstract class Drawing {
             ghostSwap(canvas);
         }
 
-        if (!baby && player.aspect == Aspects.VOID) {
+        if (!baby && player.aspect == Aspects.FLOOD) {
             voidSwap(canvas, 1 - player.getStat(Stats.POWER) / (2000 * Stats.POWER.coefficient)); //a void player at 2000 power is fully invisible.
         }else if(player.session.mutator.lightField && !player.session.mutator.hasSpotLight(player)) {
             voidSwap(canvas, 0.2); //compared to the light player, you are irrelevant.
@@ -2020,7 +2020,7 @@ abstract class Drawing {
         AspectPalette candy = new AspectPalette();
 
         //I am the GREETEST. Figured out how to make spreadsheet auto gen code: ="new_color"&ROW()&"='#" &B23 &"';"
-        if (player.aspect == Aspects.LIGHT) {
+        if (player.aspect == Aspects.BLAZE) {
             candy
                 ..aspect_light = tricksterColors[0]
                 ..aspect_dark = tricksterColors[1]
@@ -2033,7 +2033,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[8]
                 ..pants_light = tricksterColors[9]
                 ..pants_dark = tricksterColors[10];
-        } else if (player.aspect == Aspects.BREATH) {
+        } else if (player.aspect == Aspects.WINE) {
             candy
                 ..aspect_light = tricksterColors[11]
                 ..aspect_dark = tricksterColors[12]
@@ -2046,7 +2046,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[0]
                 ..pants_light = tricksterColors[1]
                 ..pants_dark = tricksterColors[2];
-        } else if (player.aspect == Aspects.TIME) {
+        } else if (player.aspect == Aspects.KNIFE) {
             candy
                 ..aspect_light = tricksterColors[3]
                 ..aspect_dark = tricksterColors[4]
@@ -2059,7 +2059,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[11]
                 ..pants_light = tricksterColors[12]
                 ..pants_dark = tricksterColors[13];
-        } else if (player.aspect == Aspects.SPACE) {
+        } else if (player.aspect == Aspects.SPEAR) {
             candy
                 ..aspect_light = tricksterColors[14]
                 ..aspect_dark = tricksterColors[15]
@@ -2072,7 +2072,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[3]
                 ..pants_light = tricksterColors[4]
                 ..pants_dark = tricksterColors[5];
-        } else if (player.aspect == Aspects.HEART) {
+        } else if (player.aspect == Aspects.MILK) {
             candy
                 ..aspect_light = tricksterColors[6]
                 ..aspect_dark = tricksterColors[7]
@@ -2085,7 +2085,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[14]
                 ..pants_light = tricksterColors[15]
                 ..pants_dark = tricksterColors[16];
-        } else if (player.aspect == Aspects.MIND) {
+        } else if (player.aspect == Aspects.HONEY) {
             candy
                 ..aspect_light = tricksterColors[17]
                 ..aspect_dark = tricksterColors[18]
@@ -2098,7 +2098,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[11]
                 ..pants_light = tricksterColors[10]
                 ..pants_dark = tricksterColors[9];
-        } else if (player.aspect == Aspects.LIFE) {
+        } else if (player.aspect == Aspects.OIL) {
             candy
                 ..aspect_light = tricksterColors[8]
                 ..aspect_dark = tricksterColors[7]
@@ -2111,7 +2111,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[0]
                 ..pants_light = tricksterColors[1]
                 ..pants_dark = tricksterColors[2];
-        } else if (player.aspect == Aspects.VOID) {
+        } else if (player.aspect == Aspects.FLOOD) {
             candy
                 ..aspect_light = tricksterColors[3]
                 ..aspect_dark = tricksterColors[5]
@@ -2124,7 +2124,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[8]
                 ..pants_light = tricksterColors[7]
                 ..pants_dark = tricksterColors[6];
-        } else if (player.aspect == Aspects.HOPE) {
+        } else if (player.aspect == Aspects.FRUIT) {
             candy
                 ..aspect_light = tricksterColors[10]
                 ..aspect_dark = tricksterColors[9]
@@ -2138,7 +2138,7 @@ abstract class Drawing {
                 ..pants_light = tricksterColors[1]
                 ..pants_dark = tricksterColors[0];
         }
-        else if (player.aspect == Aspects.DOOM) {
+        else if (player.aspect == Aspects.SPICE) {
             candy
                 ..aspect_light = tricksterColors[18]
                 ..aspect_dark = tricksterColors[17]
@@ -2151,7 +2151,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[10]
                 ..pants_light = tricksterColors[9]
                 ..pants_dark = tricksterColors[10];
-        } else if (player.aspect == Aspects.RAGE) {
+        } else if (player.aspect == Aspects.ROCK) {
             candy
                 ..aspect_light = tricksterColors[4]
                 ..aspect_dark = tricksterColors[1]
@@ -2164,7 +2164,7 @@ abstract class Drawing {
                 ..shirt_dark = tricksterColors[2]
                 ..pants_light = tricksterColors[5]
                 ..pants_dark = tricksterColors[7];
-        } else if (player.aspect == Aspects.BLOOD) {
+        } else if (player.aspect == Aspects.BREAD) {
             candy
                 ..aspect_light = tricksterColors[1]
                 ..aspect_dark = tricksterColors[2]

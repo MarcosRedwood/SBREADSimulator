@@ -24,7 +24,7 @@ class Page extends SBURBClass {
     
     @override
     double difficulty = 0.0;
-    Page() : super("Page", 1, true);
+    Page() : super("Branch", 1, true);
     @override
     List<String> levels = ["APPRENTICE ANKLEBITER", "JOURNEYING JUNIOR", "OUTFOXED BUCKAROO"];
     @override

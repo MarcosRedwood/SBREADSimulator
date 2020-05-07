@@ -323,7 +323,7 @@ class SessionMutator {
             ret += "<br><br>The ${p.htmlTitle()} begins to change.  They no longer enjoy ${p.interest1.name}.";
             p.interest1 = activatingPlayer.interest1; //you now are required to have one thing in common with the heart player.
             ret += " Instead, they now prefer the clearly superior ${p.interest1.name}, just like the ${activatingPlayer.htmlTitle()}.";
-            if(p.aspect != Aspects.SPACE && p.aspect != Aspects.TIME) p.aspect = s.rand.pickFrom(Aspects.all);
+            if(p.aspect != Aspects.SPEAR && p.aspect != Aspects.KNIFE) p.aspect = s.rand.pickFrom(Aspects.all);
             p.class_name = s.rand.pickFrom(SBURBClassManager.all);
             p.associatedStats = []; //lose everything from your old classpect
             p.aspect.initAssociatedStats(p);
@@ -651,7 +651,7 @@ class SessionMutator {
         String tmp = "<div id = 'yyholder'></div><bR>";
         appendHtml(div, tmp);
         div2 = querySelector("#yyholder");
-        Player time = Player.makeRenderingSnapshot(findAspectPlayer(session.players, Aspects.TIME));
+        Player time = Player.makeRenderingSnapshot(findAspectPlayer(session.players, Aspects.KNIFE));
         time.dead = false;
         time.doomed = true;
         time.setStat(Stats.CURRENT_HEALTH, time.getStat(Stats.HEALTH));
@@ -902,7 +902,7 @@ class MetaPlayerHandler {
     }
 
     Player makeAW(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCRIBE, Aspects.LIFE);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCRIBE, Aspects.OIL);
         player.quirk = randomHumanQuirk(s.rand);
         player.hair = 30;
         player.ectoBiologicalSource = 13;
@@ -953,7 +953,7 @@ class MetaPlayerHandler {
     }
 
     Player makeTG(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.PAGE, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.PAGE, Aspects.FLOOD);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.copyFromOCDataString("b=zh%03%C2%85%C3%BE%13%00%40%1F%1FB&s=,,Music,Dungeon Mastering,tableGuardian");
@@ -995,7 +995,7 @@ class MetaPlayerHandler {
 
     Player makeFU(Session s) {
         s.logger.info("Making fu");
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.PAGE, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.PAGE, Aspects.FLOOD);
 
         player.deriveSpecibus = false;
         player.specibus = new Specibus("Sauce", ItemTraitFactory.PIGEON, [ ItemTraitFactory.CORRUPT, ItemTraitFactory.OBSCURING]);
@@ -1044,7 +1044,7 @@ class MetaPlayerHandler {
 
     //DM agreed to be our time player
     Player makeDM(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.PRINCE, Aspects.TIME);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.PRINCE, Aspects.KNIFE);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1093,7 +1093,7 @@ class MetaPlayerHandler {
 
     //myseriously absent. why would SBURB assign a troll to be the space player for a human session?
     Player makeIO(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.MAGE, Aspects.SPACE);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.MAGE, Aspects.SPEAR);
 
         player.quirk = randomHumanQuirk(s.rand);
 
@@ -1136,7 +1136,7 @@ class MetaPlayerHandler {
 
     //made a legit prophecy that could be subverted by stripping.
     Player makeMI(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.BARD, Aspects.DOOM);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.BARD, Aspects.SPICE);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1184,7 +1184,7 @@ class MetaPlayerHandler {
     }
 
     Player makeSB(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.LORD, Aspects.BLOOD);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.LORD, Aspects.BREAD);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1232,7 +1232,7 @@ class MetaPlayerHandler {
     }
 
     Player makeWM(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.MUSE, Aspects.BREATH);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.MUSE, Aspects.WINE);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1285,7 +1285,7 @@ class MetaPlayerHandler {
     }
 
     Player makeRS(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.SEER, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SEER, Aspects.FLOOD);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1383,7 +1383,7 @@ class MetaPlayerHandler {
     }
 
     Player makePL(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.WITCH, Aspects.VOID);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.WITCH, Aspects.FLOOD);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1437,7 +1437,7 @@ class MetaPlayerHandler {
     }
 
     Player makeJR(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.WASTE, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.WASTE, Aspects.HONEY);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1478,7 +1478,7 @@ class MetaPlayerHandler {
     }
 
     Player makeAB(Session s) {
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.GUIDE, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.GUIDE, Aspects.HONEY);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;
@@ -1521,7 +1521,7 @@ class MetaPlayerHandler {
 
     Player makeABJ(Session s) {
         s.logger.info("Making abj");
-        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCOUT, Aspects.MIND);
+        Player player = randomPlayerNoDerived(s, SBURBClassManager.SCOUT, Aspects.HONEY);
         player.quirk = randomHumanQuirk(s.rand);
 
         player.deriveSpecibus = false;

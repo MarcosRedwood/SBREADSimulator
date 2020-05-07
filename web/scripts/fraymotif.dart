@@ -360,7 +360,7 @@ class Fraymotif {
         List<GameEntity> living = findLiving(allies);
         //;
         //Hope Rides Alone
-        if (owner is Player && owner.aspect == Aspects.HOPE && living.length == 1 && owner.rand.nextDouble() > 0.85) {
+        if (owner is Player && owner.aspect == Aspects.FRUIT && living.length == 1 && owner.rand.nextDouble() > 0.85) {
             enemies[0].addBuff(new BuffFlat(Stats.CURRENT_HEALTH, -9999.0, combat:true)); //they REALLY believed in this attack.
             List<String> jakeisms = <String>["GADZOOKS!", "BOY HOWDY!", "TALLY HO!", "BY GUM"];
             //;
@@ -476,73 +476,73 @@ class FraymotifCreator {
     void initializePremadeNames() {
         this.premadeFraymotifNames = [];
 
-        this.premadeFraymotifNames.add(new Fraymotif("Blinded By The Light", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.MIND]));
-        this.premadeFraymotifNames.add(new Fraymotif("Total Eclipse of the Heart", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.HEART]));
-        this.premadeFraymotifNames.add(new Fraymotif("Stop, Hammertime", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Wings of Freedom", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Happy Ending", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Adagio Redshift", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Time Heals All Wounds", 1, aspects: <Aspect>[Aspects.LIFE, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Madrigal Melancholia", 1, aspects: <Aspect>[Aspects.HEART, Aspects.DOOM]));
-        this.premadeFraymotifNames.add(new Fraymotif("Canon in HS Major", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.TIME, Aspects.BREATH, Aspects.LIGHT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Blinded By The Light", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.HONEY]));
+        this.premadeFraymotifNames.add(new Fraymotif("Total Eclipse of the Heart", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.MILK]));
+        this.premadeFraymotifNames.add(new Fraymotif("Stop, Hammertime", 1, aspects: <Aspect>[Aspects.WINE, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Wings of Freedom", 1, aspects: <Aspect>[Aspects.WINE, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Happy Ending", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Adagio Redshift", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Time Heals All Wounds", 1, aspects: <Aspect>[Aspects.OIL, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Madrigal Melancholia", 1, aspects: <Aspect>[Aspects.MILK, Aspects.SPICE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Canon in HS Major", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.KNIFE, Aspects.WINE, Aspects.BLAZE]));
         // this.premadeFraymotifNames.add(new Fraymotif("Canon in HS Minor", 1, aspects:<Aspect>[Aspects.LIFE, Aspects.VOID, Aspects.HEART, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Another One Bites The Dust", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Maybe Someday", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Mind Over Matter", 1, aspects: <Aspect>[Aspects.MIND, Aspects.SPACE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Extraterrestrial Ensemble", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.LIFE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Lifetime Special", 1, aspects: <Aspect>[Aspects.LIFE, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Air on a Cosmic String", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Rhapsody in Blue", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Brainstorm", 1, aspects: <Aspect>[Aspects.MIND, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Spaced Out", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Look On The Bright Side", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.LIGHT]));
-        this.premadeFraymotifNames.add(new Fraymotif("Lights Out", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Lost Hope", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Grandiose Illuminations", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Lost Hope", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Flipping the Light Fantastic", 1, aspects: <Aspect>[Aspects.VOID, Aspects.LIGHT, Aspects.HEART]));
-        this.premadeFraymotifNames.add(new Fraymotif("Hotel California", 1, aspects: <Aspect>[Aspects.HEART, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Feel Good", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.HEART]));
-        this.premadeFraymotifNames.add(new Fraymotif("Heart's Not In It", 1, aspects: <Aspect>[Aspects.HEART, Aspects.VOID, Aspects.SPACE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Freedom of Thought", 1, aspects: <Aspect>[Aspects.MIND, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Brick in The Wall", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.RAGE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Ancestral Awakening", 1, aspects: <Aspect>[Aspects.BLOOD, Aspects.DOOM, Aspects.LIFE]));
-        this.premadeFraymotifNames.add(new Fraymotif("You're Gonna Have a Bad Time", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("I Hope You Die", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Free Rage Chicken", 1, aspects: <Aspect>[Aspects.RAGE, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Gears of War", 1, aspects: <Aspect>[Aspects.TIME, Aspects.RAGE]));
-        this.premadeFraymotifNames.add(new Fraymotif("You Suck", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Apollo's Chariot", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Planck Fandango", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Emancipation Proclamation", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.LIFE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Glass Half Empty", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("It's Raining Zen (Hallelujah)", 1, aspects: <Aspect>[Aspects.BLOOD, Aspects.HOPE, Aspects.MIND]));
-        this.premadeFraymotifNames.add(new Fraymotif("She Blinded Me With Science", 1, aspects: <Aspect>[Aspects.LIGHT, Aspects.SPACE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Never Gonna Let You Down", 1, aspects: <Aspect>[Aspects.TIME, Aspects.LIFE, Aspects.BLOOD]));
-        this.premadeFraymotifNames.add(new Fraymotif("Bad Breath", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.BREATH]));
-        this.premadeFraymotifNames.add(new Fraymotif("Opposites Attract", 1, aspects: <Aspect>[Aspects.RAGE, Aspects.BLOOD]));
-        this.premadeFraymotifNames.add(new Fraymotif("Life and Death and Love and Birth", 1, aspects: <Aspect>[Aspects.LIFE, Aspects.DOOM, Aspects.HEART, Aspects.SPACE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Freedom is Slavery", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.DOOM]));
-        this.premadeFraymotifNames.add(new Fraymotif("Alternate Universe", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.TIME, Aspects.SPACE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Tangle Buddies", 1, aspects: <Aspect>[Aspects.VOID, Aspects.LIFE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Let's Pierce the Heavens", 1, aspects: <Aspect>[Aspects.BREATH, Aspects.HOPE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Volatile Times", 1, aspects: <Aspect>[Aspects.VOID, Aspects.TIME]));
-        this.premadeFraymotifNames.add(new Fraymotif("Mom's Spaghettification", 1, aspects: <Aspect>[Aspects.SPACE, Aspects.VOID]));
-        this.premadeFraymotifNames.add(new Fraymotif("Kill the Light", 1, aspects: <Aspect>[Aspects.RAGE, Aspects.DOOM, Aspects.LIGHT]));
-        this.premadeFraymotifNames.add(new Fraymotif("Deadly Laser", 1, aspects: <Aspect>[Aspects.DOOM, Aspects.LIGHT]));
-        this.premadeFraymotifNames.add(new Fraymotif("Just...Fuck That Guy", 1, aspects: <Aspect>[Aspects.BLOOD, Aspects.MIND, Aspects.BREATH, Aspects.LIGHT, Aspects.SPACE, Aspects.VOID, Aspects.TIME, Aspects.HEART, Aspects.HOPE, Aspects.LIFE, Aspects.DOOM]));
+        this.premadeFraymotifNames.add(new Fraymotif("Another One Bites The Dust", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Maybe Someday", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Mind Over Matter", 1, aspects: <Aspect>[Aspects.HONEY, Aspects.SPEAR]));
+        this.premadeFraymotifNames.add(new Fraymotif("Extraterrestrial Ensemble", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.OIL]));
+        this.premadeFraymotifNames.add(new Fraymotif("Lifetime Special", 1, aspects: <Aspect>[Aspects.OIL, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Air on a Cosmic String", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Rhapsody in Blue", 1, aspects: <Aspect>[Aspects.WINE, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Brainstorm", 1, aspects: <Aspect>[Aspects.HONEY, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Spaced Out", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Look On The Bright Side", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.BLAZE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Lights Out", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Lost Hope", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Grandiose Illuminations", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Lost Hope", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Flipping the Light Fantastic", 1, aspects: <Aspect>[Aspects.FLOOD, Aspects.BLAZE, Aspects.MILK]));
+        this.premadeFraymotifNames.add(new Fraymotif("Hotel California", 1, aspects: <Aspect>[Aspects.MILK, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Feel Good", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.MILK]));
+        this.premadeFraymotifNames.add(new Fraymotif("Heart's Not In It", 1, aspects: <Aspect>[Aspects.MILK, Aspects.FLOOD, Aspects.SPEAR]));
+        this.premadeFraymotifNames.add(new Fraymotif("Freedom of Thought", 1, aspects: <Aspect>[Aspects.HONEY, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Brick in The Wall", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.ROCK]));
+        this.premadeFraymotifNames.add(new Fraymotif("Ancestral Awakening", 1, aspects: <Aspect>[Aspects.BREAD, Aspects.SPICE, Aspects.OIL]));
+        this.premadeFraymotifNames.add(new Fraymotif("You're Gonna Have a Bad Time", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("I Hope You Die", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Free Rage Chicken", 1, aspects: <Aspect>[Aspects.ROCK, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Gears of War", 1, aspects: <Aspect>[Aspects.KNIFE, Aspects.ROCK]));
+        this.premadeFraymotifNames.add(new Fraymotif("You Suck", 1, aspects: <Aspect>[Aspects.WINE, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Apollo's Chariot", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Planck Fandango", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Emancipation Proclamation", 1, aspects: <Aspect>[Aspects.WINE, Aspects.OIL]));
+        this.premadeFraymotifNames.add(new Fraymotif("Glass Half Empty", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("It's Raining Zen (Hallelujah)", 1, aspects: <Aspect>[Aspects.BREAD, Aspects.FRUIT, Aspects.HONEY]));
+        this.premadeFraymotifNames.add(new Fraymotif("She Blinded Me With Science", 1, aspects: <Aspect>[Aspects.BLAZE, Aspects.SPEAR]));
+        this.premadeFraymotifNames.add(new Fraymotif("Never Gonna Let You Down", 1, aspects: <Aspect>[Aspects.KNIFE, Aspects.OIL, Aspects.BREAD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Bad Breath", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.WINE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Opposites Attract", 1, aspects: <Aspect>[Aspects.ROCK, Aspects.BREAD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Life and Death and Love and Birth", 1, aspects: <Aspect>[Aspects.OIL, Aspects.SPICE, Aspects.MILK, Aspects.SPEAR]));
+        this.premadeFraymotifNames.add(new Fraymotif("Freedom is Slavery", 1, aspects: <Aspect>[Aspects.WINE, Aspects.SPICE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Alternate Universe", 1, aspects: <Aspect>[Aspects.WINE, Aspects.KNIFE, Aspects.SPEAR]));
+        this.premadeFraymotifNames.add(new Fraymotif("Tangle Buddies", 1, aspects: <Aspect>[Aspects.FLOOD, Aspects.OIL]));
+        this.premadeFraymotifNames.add(new Fraymotif("Let's Pierce the Heavens", 1, aspects: <Aspect>[Aspects.WINE, Aspects.FRUIT]));
+        this.premadeFraymotifNames.add(new Fraymotif("Volatile Times", 1, aspects: <Aspect>[Aspects.FLOOD, Aspects.KNIFE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Mom's Spaghettification", 1, aspects: <Aspect>[Aspects.SPEAR, Aspects.FLOOD]));
+        this.premadeFraymotifNames.add(new Fraymotif("Kill the Light", 1, aspects: <Aspect>[Aspects.ROCK, Aspects.SPICE, Aspects.BLAZE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Deadly Laser", 1, aspects: <Aspect>[Aspects.SPICE, Aspects.BLAZE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Just...Fuck That Guy", 1, aspects: <Aspect>[Aspects.BREAD, Aspects.HONEY, Aspects.WINE, Aspects.BLAZE, Aspects.SPEAR, Aspects.FLOOD, Aspects.KNIFE, Aspects.MILK, Aspects.FRUIT, Aspects.OIL, Aspects.SPICE]));
 
         ///lol, no gamzee
         //vI would do anything for love, but I won't do that///
-        this.premadeFraymotifNames.add(new Fraymotif("I would do anything for love, but I won't do that", 1, aspects: <Aspect>[Aspects.BLOOD, Aspects.MIND, Aspects.BREATH, Aspects.LIGHT, Aspects.SPACE, Aspects.VOID, Aspects.TIME, Aspects.RAGE, Aspects.HOPE, Aspects.LIFE, Aspects.DOOM])); //
-        this.premadeFraymotifNames.add(new Fraymotif("Homestuck Anthem", 1, aspects: <Aspect>[Aspects.BLOOD, Aspects.MIND, Aspects.BREATH, Aspects.LIGHT, Aspects.SPACE, Aspects.VOID, Aspects.TIME, Aspects.RAGE, Aspects.HOPE, Aspects.LIFE, Aspects.DOOM, Aspects.RAGE]));
+        this.premadeFraymotifNames.add(new Fraymotif("I would do anything for love, but I won't do that", 1, aspects: <Aspect>[Aspects.BREAD, Aspects.HONEY, Aspects.WINE, Aspects.BLAZE, Aspects.SPEAR, Aspects.FLOOD, Aspects.KNIFE, Aspects.ROCK, Aspects.FRUIT, Aspects.OIL, Aspects.SPICE])); //
+        this.premadeFraymotifNames.add(new Fraymotif("Homestuck Anthem", 1, aspects: <Aspect>[Aspects.BREAD, Aspects.HONEY, Aspects.WINE, Aspects.BLAZE, Aspects.SPEAR, Aspects.FLOOD, Aspects.KNIFE, Aspects.ROCK, Aspects.FRUIT, Aspects.OIL, Aspects.SPICE, Aspects.ROCK]));
 
         ///l
-        this.premadeFraymotifNames.add(new Fraymotif("Grim Fandango", 1, aspects: <Aspect>[Aspects.LIFE, Aspects.DOOM]));
-        this.premadeFraymotifNames.add(new Fraymotif("Timeline Evisceration", 1, aspects: <Aspect>[Aspects.MIND, Aspects.TIME, Aspects.DOOM]));
-        this.premadeFraymotifNames.add(new Fraymotif("Shipping Grades", 1, aspects: <Aspect>[Aspects.HEART, Aspects.BLOOD]));
-        this.premadeFraymotifNames.add(new Fraymotif("In Space, No One Can Hear You Scream", 1, aspects: <Aspect>[Aspects.VOID, Aspects.SPACE, Aspects.RAGE]));
-        this.premadeFraymotifNames.add(new Fraymotif("Hope For The Future", 1, aspects: <Aspect>[Aspects.HOPE, Aspects.TIME]));
+        this.premadeFraymotifNames.add(new Fraymotif("Grim Fandango", 1, aspects: <Aspect>[Aspects.OIL, Aspects.SPICE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Timeline Evisceration", 1, aspects: <Aspect>[Aspects.HONEY, Aspects.KNIFE, Aspects.SPICE]));
+        this.premadeFraymotifNames.add(new Fraymotif("Shipping Grades", 1, aspects: <Aspect>[Aspects.MILK, Aspects.BREAD]));
+        this.premadeFraymotifNames.add(new Fraymotif("In Space, No One Can Hear You Scream", 1, aspects: <Aspect>[Aspects.FLOOD, Aspects.SPEAR, Aspects.ROCK]));
+        this.premadeFraymotifNames.add(new Fraymotif("Hope For The Future", 1, aspects: <Aspect>[Aspects.FRUIT, Aspects.KNIFE]));
     }
 
     String getFraymotifName(Random rand, List<Player> players, int tier) {
@@ -580,7 +580,7 @@ class FraymotifCreator {
             double rand = player.rand.nextDouble();
             Player p = player.session.players[i];
             double needed = 0.8;
-            if (p.aspect == Aspects.LIGHT || p.aspect == Aspects.BLOOD) needed = 0.6; //light players have to be in the spot light, and blood players just wanna help.
+            if (p.aspect == Aspects.BLAZE || p.aspect == Aspects.BREAD) needed = 0.6; //light players have to be in the spot light, and blood players just wanna help.
             if (rand > needed && !players_involved.contains(p)) {
                 players_involved.add(p); //MATH% chance of adding each additional player
             }

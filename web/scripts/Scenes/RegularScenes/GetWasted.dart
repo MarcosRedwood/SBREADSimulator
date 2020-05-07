@@ -73,7 +73,7 @@ class GetWasted extends Scene {
             if(session.rand.nextDouble() >0.9) return true;
         }
         int tippingPoint = tippingPointBase;
-        if(p.aspect == Aspects.TIME) tippingPoint = tippingPoint * 4; //time has way too easy a chance to get here.
+        if(p.aspect == Aspects.KNIFE) tippingPoint = tippingPoint * 4; //time has way too easy a chance to get here.
         if(p.gnosis ==3) tippingPoint = tippingPoint *2; //very last tier should be extra hard.
         if(p.gnosis >=4 || p.gnosis <0) return false; //you are done yo, or you are doing something weird (WM probably caused it)
         //linear works well for these
@@ -242,12 +242,12 @@ class GetWasted extends Scene {
     }
 
     String processTier3(Element div) {
-        if(player.aspect.isThisMe(Aspects.TIME) || player.aspect.isThisMe(Aspects.BREATH) || player.aspect.isThisMe(Aspects.LAW)) return exploitMobility(div);
-        if(player.aspect.isThisMe(Aspects.HOPE) || player.aspect.isThisMe(Aspects.LIGHT)) return exploitFate(div);
-        if(player.aspect.isThisMe(Aspects.RAGE) || player.aspect.isThisMe(Aspects.MIND)) return exploitTime(div);
-        if(player.aspect.isThisMe(Aspects.SPACE) || player.aspect.isThisMe(Aspects.VOID)) return exploitGlitches(div);
-        if(player.aspect.isThisMe(Aspects.HEART) || player.aspect.isThisMe(Aspects.BLOOD)) return exploitFriendship(div);
-        if(player.aspect.isThisMe(Aspects.LIFE) || player.aspect .isThisMe(Aspects.DOOM)) return exploitDoom(div);
+        if(player.aspect.isThisMe(Aspects.KNIFE) || player.aspect.isThisMe(Aspects.WINE) || player.aspect.isThisMe(Aspects.LAW)) return exploitMobility(div);
+        if(player.aspect.isThisMe(Aspects.FRUIT) || player.aspect.isThisMe(Aspects.BLAZE)) return exploitFate(div);
+        if(player.aspect.isThisMe(Aspects.ROCK) || player.aspect.isThisMe(Aspects.HONEY)) return exploitTime(div);
+        if(player.aspect.isThisMe(Aspects.SPEAR) || player.aspect.isThisMe(Aspects.FLOOD)) return exploitGlitches(div);
+        if(player.aspect.isThisMe(Aspects.MILK) || player.aspect.isThisMe(Aspects.BREAD)) return exploitFriendship(div);
+        if(player.aspect.isThisMe(Aspects.OIL) || player.aspect .isThisMe(Aspects.SPICE)) return exploitDoom(div);
         if(player.aspect.isThisMe(Aspects.DREAM) ) return exploitAlchemy(div);
 
         return "OMFG, THIS WOULD DO SOMETHING IF JR WASN'T A LAZY PIECE OF SHIT.";
@@ -285,11 +285,11 @@ class GetWasted extends Scene {
     //set up teleporters or flying mounts so quests are WAY easier to do
     String exploitMobility(Element div) {
         String ret = "The ${player.htmlTitle()} exploits the rules of SBURB. ";
-        if(player.aspect.isThisMe(Aspects.BREATH)) {
+        if(player.aspect.isThisMe(Aspects.WINE)) {
             ret = "They alchemize a series of game breaking as fuck flying items and pass them out to everyone";
             ret += " , allowing all players to basically ignore their gates entirely and skip all the boring walking parts of their land quests. ";
 
-        }else if(player.aspect.isThisMe(Aspects.TIME)) {
+        }else if(player.aspect.isThisMe(Aspects.KNIFE)) {
             ret = " They set up a frankly scandalous series of time shenanigans";
             ret += " , allowing all players to basically spam multiple quests 'at the same time'. ";
 
@@ -325,9 +325,9 @@ class GetWasted extends Scene {
     //auto english tier someone be lucky enough or hopeful enough that it works for EVERYONE
     String exploitFate(Element div) {
         String ret = "The ${player.htmlTitle()} exploits the rules of SBURB.  They know what it takes to reach god tier, and whoever they can't convince, they ambush. ";
-        if(this.player.aspect.isThisMe(Aspects.HOPE)) {
+        if(this.player.aspect.isThisMe(Aspects.FRUIT)) {
             ret += " They believe with all their heart that this plan will work.  It helps that they don't even have a clue that whole 'god tier destiny' bullshit exists.  ";
-        }else if (this.player.aspect.isThisMe(Aspects.LIGHT)){
+        }else if (this.player.aspect.isThisMe(Aspects.BLAZE)){
             ret += " Regardless of what destiny says, they are lucky enough bastards that the plan goes off without a hitch. ";
         }
 
@@ -350,12 +350,12 @@ class GetWasted extends Scene {
     //make doomed timeclone army
     String exploitTime(Element div) {
         String ret = "The ${player.htmlTitle()} exploits the rules of SBURB. They begin seriously planning to utterly fuck over the timeline. ";
-        if(this.player.aspect.isThisMe(Aspects.RAGE)) {
+        if(this.player.aspect.isThisMe(Aspects.ROCK)) {
             ret += " They use their innate sense of ignoring Skaia's wishes to plan to fuck shit up in subtle ways.  No, Skaia, I WON'T be eating that apple when you want me to. Don't like that, don't make me get the god pjs out, I'll do it!";
-        }else if (this.player.aspect.isThisMe(Aspects.MIND)){
+        }else if (this.player.aspect.isThisMe(Aspects.HONEY)){
             ret += " They use their innate sense of the consequences of actions to fuck up causality entirely. Pardoxes ahoy. ";
         }
-        List<Player> timePlayers = findAllAspectPlayers(session.players, Aspects.TIME);
+        List<Player> timePlayers = findAllAspectPlayers(session.players, Aspects.KNIFE);
 
         List<Player> doomedTimeClones = new List<Player>();
         ret += " As expected, a small army of doomed time clones arrives to stop their many, many terrible ideas and fallback ideas. Now the various boss fights should be a lot easier. ";
@@ -384,7 +384,7 @@ class GetWasted extends Scene {
     //skaian magicent kinda deal
     String exploitGlitches(Element div) {
         String ret = "The ${player.htmlTitle()} exploits the rules of SBURB.";
-        if(player.aspect.isThisMe(Aspects.VOID)) {
+        if(player.aspect.isThisMe(Aspects.FLOOD)) {
             ret += " Uh.  Where did they go? <div class = 'void'> ";
         }
         ret += " They discover a glitchy, half finished area. I didn't even know it was there???  Wow, look at all that grist and fraymotifs they come out with. What the fuck?<br>";
@@ -410,7 +410,7 @@ class GetWasted extends Scene {
             p.grist += 1000;
 
         }
-        if(player.aspect == Aspects.VOID) {
+        if(player.aspect == Aspects.FLOOD) {
             ret += "</div>";
         }
         return ret;
@@ -420,7 +420,7 @@ class GetWasted extends Scene {
     String exploitFriendship(Element div) {
         session.logger.info("AB: friendship tier3 happening.");
         String ret = "The ${player.htmlTitle()} exploits the rules of SBURB.";
-        if(player.aspect.isThisMe(Aspects.BLOOD)) {
+        if(player.aspect.isThisMe(Aspects.BREAD)) {
             ret +=  "They find a fast, repeatable quest and organize everyone into ever-changing adventuring pairs to take advantage of the game's interaction effect bonus. ";
         }else {
             ret +=  "They find something called a 'Shipping Dunegon' and arrange everyone into various 'canon' and 'crackship' speed dates to take advantage of the game's interaction effect bonus. ";
@@ -460,7 +460,7 @@ class GetWasted extends Scene {
                 Player ghost = session.afterLife.findAnyUndrainedGhost(rand);
                 ///only added if somebody has this apply.
                 String subRet = "They curse the ${p.htmlTitle()} with a prophecy of doom, only to kill them instantly and then revive them. The bonus the ${p.htmlTitle()} gets from subverting their fate is verging on cheating.";
-                if(player.aspect == Aspects.LIFE) subRet = "They kill the ${p.htmlTitle()} then revive them with a huge bonus from absorbing their own ghost.";
+                if(player.aspect == Aspects.OIL) subRet = "They kill the ${p.htmlTitle()} then revive them with a huge bonus from absorbing their own ghost.";
 
                 String divID = "gnosis3${div.id}player${p.id}";
                 CanvasElement canvas = new CanvasElement(width: canvasWidth, height: canvasHeight);
@@ -556,7 +556,7 @@ class GetWasted extends Scene {
         writeFAQ(div);
         //in addition to unlocking other scenes, have some tier 2 shit here as well
         //small boost to space player land leve, for example. maybe some grist for everyone (once that's a thing)
-        Player space = findAspectPlayer(this.session.players, Aspects.SPACE);
+        Player space = findAspectPlayer(this.session.players, Aspects.SPEAR);
         if(space == null) return;
         if(space.landLevel < session.goodFrogLevel){
             space.increaseLandLevel(5.0);
@@ -577,12 +577,12 @@ class GetWasted extends Scene {
     void tier3(Element div) {
         session.stats.hasTier3Events = true;
         List<String> flavorText = <String>["In a moment of revelawesome The ${this.player.htmlTitle()} realizes a fundamental truth:"] ;
-        if(player.aspect == Aspects.LIGHT || player.aspect == Aspects.VOID)     flavorText.add("'A Hero is just a person who stands up and makes a diffrence.' ");
-        if(player.aspect == Aspects.HOPE || player.aspect == Aspects.SPACE)     flavorText.add("'Anything one imagines, one can make real.' ");
-        if(player.aspect == Aspects.DOOM || player.aspect == Aspects.TIME)     flavorText.add("'Fate is just the choices we have yet to make.' ");
-        if(player.aspect == Aspects.BREATH || player.aspect == Aspects.MIND)     flavorText.add("'Reality is written in the ink of people's lives.' ");
-        if(player.aspect == Aspects.RAGE || player.aspect == Aspects.LIFE)     flavorText.add("'Knowledge and Desire are meaningless without the strengh to see them through.' ");
-        if(player.aspect == Aspects.BLOOD || player.aspect == Aspects.HEART)     flavorText.add("'When we combine the light that shines within, there is nothing we can't do.' ");
+        if(player.aspect == Aspects.BLAZE || player.aspect == Aspects.FLOOD)     flavorText.add("'A Hero is just a person who stands up and makes a diffrence.' ");
+        if(player.aspect == Aspects.FRUIT || player.aspect == Aspects.SPEAR)     flavorText.add("'Anything one imagines, one can make real.' ");
+        if(player.aspect == Aspects.SPICE || player.aspect == Aspects.KNIFE)     flavorText.add("'Fate is just the choices we have yet to make.' ");
+        if(player.aspect == Aspects.WINE || player.aspect == Aspects.HONEY)     flavorText.add("'Reality is written in the ink of people's lives.' ");
+        if(player.aspect == Aspects.ROCK || player.aspect == Aspects.OIL)     flavorText.add("'Knowledge and Desire are meaningless without the strengh to see them through.' ");
+        if(player.aspect == Aspects.BREAD || player.aspect == Aspects.MILK)     flavorText.add("'When we combine the light that shines within, there is nothing we can't do.' ");
         if(flavorText.length == 1) flavorText.add("Nothing is true, everything is permitted."); //i.e. aspect not found
         flavorText.add("<BR><BR>");
         flavorText.add(processTier3(div));

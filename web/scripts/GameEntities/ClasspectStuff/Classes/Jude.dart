@@ -10,7 +10,7 @@ import "../../../Lands/Quest.dart";
 class Lord extends SBURBClass {
 
     @override
-    String sauceTitle = "Shogun";
+    String sauceTitle = "Wizard";
 
     //what sort of quests rewards do I get?
     @override
@@ -60,7 +60,7 @@ class Lord extends SBURBClass {
         new AssociatedStat(Stats.SBURB_LORE, 0.1, false)
     ]);
 
-    Lord() : super("Lord", 19, false);
+    Lord() : super("Jude", 19, false);
 
 
     @override

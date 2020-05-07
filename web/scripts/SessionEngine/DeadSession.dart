@@ -166,7 +166,7 @@ class DeadSession extends Session {
     Future<Session> startSession([bool dontReinit]) async {
         globalInit(); // initialise classes and aspects if necessary
         SimController.instance.currentSessionForErrors = this;
-        if(players.first.aspect == Aspects.JUICE) {
+        if(players.first.aspect == Aspects.HYMN) {
             throw "Sorry but juice players aren't allowed to have dead sessions. Thems the breaks.";
         }
         players = <Player>[players.first]; //hardcoded to be one big

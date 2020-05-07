@@ -51,7 +51,7 @@ class PlayerDiedForever  extends ImportantEvent {
         Drawing.copyTmpCanvasToRealCanvasAtPos(canvasDiv, pSpriteBuffer,-100,0);
         Drawing.copyTmpCanvasToRealCanvasAtPos(canvasDiv, dSpriteBuffer,100,0);
 
-        var alphaTimePlayer = findAspectPlayer(this.session.players, Aspects.TIME);
+        var alphaTimePlayer = findAspectPlayer(this.session.players, Aspects.KNIFE);
         removeFromArray(this.doomedTimeClone, alphaTimePlayer.doomedTimeClones);   //DEAD
         this.session.afterLife.addGhost(this.doomedTimeClone);
         return true;

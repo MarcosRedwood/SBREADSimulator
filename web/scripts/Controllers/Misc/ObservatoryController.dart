@@ -381,7 +381,7 @@ String processSessionComment(ObservatoryViewer ob, int today) {
 
     // LEG DAY
     for (Player p in session.players) {
-        if (p.class_name == SBURBClassManager.PAGE && p.aspect == Aspects.HEART && p.interest1.category == InterestManager.ATHLETIC && p.interest2.category == InterestManager.ATHLETIC) {
+        if (p.class_name == SBURBClassManager.PAGE && p.aspect == Aspects.MILK && p.interest1.category == InterestManager.ATHLETIC && p.interest2.category == InterestManager.ATHLETIC) {
             if (segments.isEmpty) {
                 segments.add(pc(ob,<String>["Wow, look at the legs on that Page of Heart!", "Those are some good legs, but I'm more of a thigh man myself."]));
             } else {

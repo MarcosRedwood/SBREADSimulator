@@ -105,12 +105,12 @@ class EngageMurderMode extends Scene{
 
 		//generic
 		first = (new PlusMinusConversationalPair(<String>["Hey, random text asshole.",  "You FUCKER.","Guess who, asshole."], <String>["Whoa. How did you contact me first?","This shouldn't be possible. I contact YOU not the other way around."],<String>["Whoa. How did you contact me first?","This shouldn't be possible. I contact YOU not the other way around."]));
-		if(player1.aspect == Aspects.RAGE) {
+		if(player1.aspect == Aspects.ROCK) {
 			second = (new PlusMinusConversationalPair(<String>["The power of my rage is a fucking MIRACLE isn't it?",  "It's amazing what the depths of my hatred for you can do.","Lol, Rage is a beauty, isn't it?"], <String>["Uh. I should have considered the whole 'rage' angle. ","Just how pissed off ARE you?"],<String>["Uh. I should have considered the whole 'rage' angle. ","Just how pissed off ARE you?"]));
 		}else if(player1.interestedInCategory(InterestManager.TECHNOLOGY)){
 			second = (new PlusMinusConversationalPair(<String>["It REALLY wasn't hard to reverse engineer your IP address. It's not like you're behind 7 proxies or some shit.",  "Turns out SBURB is easy to hack. Who would have guessed.","Easy. I hacked it."], <String>["Well fuck. Just don't try to hack the game you're in. Not a good end there."],<String>["Well fuck. Just don't try to hack the game you're in. Not a good end there."]));
 
-		}else if(player1.aspect == Aspects.VOID){
+		}else if(player1.aspect == Aspects.FLOOD){
 			second =(new PlusMinusConversationalPair(<String>["Void shit."], <String>["Oh. Well, okay then.","Sounds legit.","Makes sense.", "Your story checks out."],<String>["Oh. Well, okay then.","Sounds legit.","Makes sense.", "Your story checks out."]));
 
 		}else{
@@ -118,11 +118,11 @@ class EngageMurderMode extends Scene{
 		}
 		third =(new PlusMinusConversationalPair(deathThreats, <String>["Uh. You sure about that, buddy?","Oooookay then. Good luck with that."],["Lol, good luck finding me. I'm behind 7 universes.","Lol, omfg you do realize I'm not even in your session, right? "]));
 
-		if(player1.aspect == Aspects.SPACE) {
+		if(player1.aspect == Aspects.SPEAR) {
 			fourth =(new PlusMinusConversationalPair(<String>["Oh don't you worry, I'll find a way to get to you, even if I have to unlock every single Space ability to do it.",  "Yes, because physical location is SUCH A hinderence to me.","Space. Player."], <String>["Fuck.","Shit.", "Uh. I. Don't THINK there's actually a way for you to do spacey shit to get to me. Hopefully."],["Fuck.","Shit.", "Uh. I. Don't THINK there's actually a way for you to do spacey shit to get to me. Hopefully."]));
 		}else if(player1.interestedInCategory(InterestManager.TERRIBLE)){
 			fourth =(new PlusMinusConversationalPair(<String>["I will dedicate my god damned life to this.",  "Oh I will fucking find a way. I will DEDICATE myself to this.","Your future corpse has just volunteered to be the driving force in my life. Congratulations. "], <String>["... God you're so creepy."],<String>["God, you're so creepy."]));
-		}else if(player1.aspect == Aspects.DOOM){
+		}else if(player1.aspect == Aspects.SPICE){
 			fourth =(new PlusMinusConversationalPair(<String>["Oh don't you worry, I'll figure out how to skirt the rules enough to do it. "], <String>["Oh. Well, okay then.","Sounds legit.","Makes sense.", "Your story checks out."],<String>["Oh. Well, okay then.","Sounds legit.","Makes sense.", "Your story checks out."]));
 
 		}else if(player1.class_name == SBURBClassManager.WASTE || player1.class_name == SBURBClassManager.GRACE) {
@@ -386,9 +386,9 @@ class EngageMurderMode extends Scene{
 			return getHowKillGodConvo(player1,player2);
 		}else if(player2.murderMode) {
 			return getMurdererConvo(player1,player2);
-		}else if(player2.aspect == Aspects.BLOOD && player2.hasPowers()) {
+		}else if(player2.aspect == Aspects.BREAD && player2.hasPowers()) {
 			return getBloodConvo(player1,player2);
-		}else if(player2.aspect == Aspects.RAGE && player2.hasPowers()) {
+		}else if(player2.aspect == Aspects.ROCK && player2.hasPowers()) {
 			return getRageConvo(player1,player2);
 		}else if(player2.getStat(Stats.POWER) * player2.getPVPModifier("Defender") < player1.getStat(Stats.POWER)*player1.getPVPModifier("Murderer")) {
 			return getMurdererValidThreatConvo(player1,player2);

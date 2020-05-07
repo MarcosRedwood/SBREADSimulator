@@ -48,7 +48,7 @@ class Bard extends SBURBClass {
     @override
     bool isHelpful = false;
 
-    Bard() : super("Bard", 9, true);
+    Bard() : super("Cross", 9, true);
 
     @override
     num modPowerBoostByClass(num powerBoost, AssociatedStat stat) {

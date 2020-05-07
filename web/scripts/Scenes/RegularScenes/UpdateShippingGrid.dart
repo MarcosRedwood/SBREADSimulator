@@ -118,9 +118,9 @@ class UpdateShippingGrid extends Scene{
 		this.romanceChat = null;
 		Player tmpPlayer = null;
 		if(rand.nextDouble() > 0.5){
-			tmpPlayer = findAspectPlayer(this.session.getReadOnlyAvailablePlayers(), Aspects.HEART);
+			tmpPlayer = findAspectPlayer(this.session.getReadOnlyAvailablePlayers(), Aspects.MILK);
 		}else{
-			tmpPlayer = findAspectPlayer(this.session.getReadOnlyAvailablePlayers(), Aspects.BLOOD);
+			tmpPlayer = findAspectPlayer(this.session.getReadOnlyAvailablePlayers(), Aspects.BREAD);
 		}
 
 
@@ -182,7 +182,7 @@ class UpdateShippingGrid extends Scene{
 		div.append(canvasDiv);
 		Ship otp = this.chosenShipper.otp;
 		String image = "discuss_hatemance.png";
-		if(player1.aspect == Aspects.HEART){
+		if(player1.aspect == Aspects.MILK){
 			if(otp.r1.saved_type == otp.r1.heart || otp.r1.saved_type == otp.r1.goodBig ){
 				image = "discuss_romance.png";
 			}else{
@@ -206,7 +206,7 @@ class UpdateShippingGrid extends Scene{
 		div.append(canvasDiv);
 		Ship otp = this.chosenShipper.otp;
 		String image = "discuss_hatemance.png";
-		if(this.chosenShipper.player.aspect == Aspects.HEART){
+		if(this.chosenShipper.player.aspect == Aspects.MILK){
 			if(otp.r1.saved_type == otp.r1.heart || otp.r1.saved_type == otp.r1.goodBig){
 				image = "discuss_romance.png";
 			}else{
@@ -284,7 +284,7 @@ class UpdateShippingGrid extends Scene{
 		String p1Start = p1.chatHandleShort()+ ": ";
 		Player p2 = otp.r1.target;
 		String p2Start = p2.chatHandleShort()+ ": ";
-		if(this.chosenShipper.player.aspect == Aspects.BLOOD){
+		if(this.chosenShipper.player.aspect == Aspects.BREAD){
 			if(otp.r1.saved_type == otp.r1.goodBig){
 				 ////session.logger.info("trying to make a pale ship happen: " + this.session.session_id);
 				 this.tryToConvincePale(shipper, shipperStart, p1, p1Start, p2, p2Start);
@@ -609,7 +609,7 @@ class UpdateShippingGrid extends Scene{
 		session.removeAvailablePlayer(chosenShipper.player);
 		this.chosenShipper.player.increasePower();
 		String shippingStyle = "They like the conciliatory ships best, and default to those for people not yet in a quadrant.";
-		if(this.chosenShipper.player.aspect == Aspects.HEART) shippingStyle = "They like the concupiscient ships best, and default to those for people not yet in a quadrant.";
+		if(this.chosenShipper.player.aspect == Aspects.MILK) shippingStyle = "They like the concupiscient ships best, and default to those for people not yet in a quadrant.";
 		String fuckPile = "";
 		if(this.chosenShipper.savedShipText.length > 4000){
 			fuckPile += " How did this session turn into such a scandalous fuckpile? ";

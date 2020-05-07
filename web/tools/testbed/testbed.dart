@@ -249,7 +249,7 @@ Future<bool> testDrawing() async {
         group
             ..addImagePass("images/Hair/hair_back$hairid.png")
             ..addImagePass("images/Bodies/Null.png")
-            ..addImagePass("images/Light.png")
+            ..addImagePass("images/Blaze.png")
             ..addImagePass("images/Hair/hair$hairid.png");*/
 
         stuff.append(job.dispatch());

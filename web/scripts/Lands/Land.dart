@@ -271,7 +271,7 @@ class Land extends Object with FeatureHolder {
                 Player p = g as Player;
                 //land is gone, this should be only reference to it
                 //p.land = null;
-                if(p.aspect == Aspects.SPACE) {
+                if(p.aspect == Aspects.SPEAR) {
                     session.stats.brokenForge = true;
                 }
                 if(!p.canHelp()) { //you can't leave your planet yet, you're dead, and no one can get to your body to smooch it, so dream self dead, too

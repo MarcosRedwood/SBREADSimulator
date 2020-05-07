@@ -106,7 +106,7 @@ class CharCreatorController extends SimController {
   }
 
   void newPlayer(){
-    Player p = randomPlayerWithClaspect(session,SBURBClassManager.PAGE, Aspects.VOID);
+    Player p = randomPlayerWithClaspect(session,SBURBClassManager.PAGE, Aspects.FLOOD);
 
     session.players.add(p);
 

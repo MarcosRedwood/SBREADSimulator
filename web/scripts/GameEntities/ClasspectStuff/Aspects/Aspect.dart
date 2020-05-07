@@ -3,60 +3,60 @@ import "../../../Lands/FeatureTypes/QuestChainFeature.dart";
 import "../../../Lands/Reward.dart";
 import "../../../Lands/Quest.dart";
 
-import "Blood.dart";
-import "Breath.dart";
-import "Doom.dart";
-import "Heart.dart";
-import "Hope.dart";
+import "Bread.dart";
+import "Wine.dart";
+import "Spice.dart";
+import "Milk.dart";
+import "Fruit.dart";
 import 'Law.dart';
-import "Life.dart";
-import "Light.dart";
-import "Mind.dart";
-import "Rage.dart";
-import "Space.dart";
-import "Time.dart";
-import "Void.dart";
+import "Oil.dart";
+import "Blaze.dart";
+import "Honey.dart";
+import "Rock.dart";
+import "Spear.dart";
+import "Knife.dart";
+import "Flood.dart";
 import "Dream.dart";
-import "Sauce.dart";
-import "Juice.dart";
+import "Cant.dart";
+import "Hymn.dart";
 
 abstract class Aspects {
-    static Aspect SPACE;
-    static Aspect TIME;
-    static Aspect BREATH;
-    static Aspect DOOM;
-    static Aspect BLOOD;
-    static Aspect HEART;
-    static Aspect MIND;
-    static Aspect LIGHT;
-    static Aspect VOID;
-    static Aspect RAGE;
-    static Aspect HOPE;
-    static Aspect LIFE;
+    static Aspect SPEAR;
+    static Aspect KNIFE;
+    static Aspect WINE;
+    static Aspect SPICE;
+    static Aspect BREAD;
+    static Aspect MILK;
+    static Aspect HONEY;
+    static Aspect BLAZE;
+    static Aspect FLOOD;
+    static Aspect ROCK;
+    static Aspect FRUIT;
+    static Aspect OIL;
     static Aspect DREAM;
     static Aspect LAW;
-    static Aspect SAUCE; //just shogun
-    static Aspect JUICE; //everyone but sb
+    static Aspect CANT; //just a very specific WL
+    static Aspect HYMN; //everyone but donuts
 
     static Aspect NULL;
 
     static void init() {
-        SPACE = new Space(0);
-        TIME = new Time(1);
-        BREATH = new Breath(2);
-        DOOM = new Doom(3);
-        BLOOD = new Blood(4);
-        HEART = new Heart(5);
-        MIND = new Mind(6);
-        LIGHT = new Light(7);
-        VOID = new Void(8);
-        RAGE = new Rage(9);
-        HOPE = new Hope(10);
-        LIFE = new Life(11);
+        SPEAR = new Spear(0);
+        KNIFE = new Knife(1);
+        WINE = new Wine(2);
+        SPICE = new Spice(3);
+        BREAD = new Bread(4);
+        MILK = new Milk(5);
+        HONEY = new Honey(6);
+        BLAZE = new Blaze(7);
+        FLOOD = new Flood(8);
+        ROCK = new Rock(9);
+        FRUIT = new Fruit(10);
+        OIL = new Oil(11);
         DREAM = new Dream(12);
         LAW = new Law(14);
-        SAUCE = new Sauce(13);
-        JUICE = new Juice(15); //sudden terror, did i make sure extension bytes work with aspects?
+        CANT = new Cant(13);
+        HYMN = new Hymn(15); //sudden terror, did i make sure extension bytes work with aspects?
 
         NULL = new Aspect(255, "Null", isInternal:true);
     }

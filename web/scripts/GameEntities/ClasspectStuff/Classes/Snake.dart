@@ -56,7 +56,7 @@ class Witch extends SBURBClass {
         new AssociatedStat(Stats.SBURB_LORE, 0.1, false)
     ]);
 
-    Witch() : super("Witch", 11, true);
+    Witch() : super("Snake", 11, true);
 
     @override
     bool highHinit() {

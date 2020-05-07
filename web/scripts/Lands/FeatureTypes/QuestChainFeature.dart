@@ -76,7 +76,7 @@ class QuestChainFeature extends Feature {
 
     static bool playerIsStealthyAspect(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.VOID || p.aspect == Aspects.BREATH;
+        return p.aspect == Aspects.FLOOD || p.aspect == Aspects.WINE;
     }
 
     static bool twoPlayers(List<GameEntity> ps) {
@@ -125,62 +125,62 @@ class QuestChainFeature extends Feature {
 
     static bool bloodPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.BLOOD;
+        return p.aspect == Aspects.BREAD;
     }
 
     static bool mindPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.MIND;
+        return p.aspect == Aspects.HONEY;
     }
 
     static bool ragePlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.RAGE;
+        return p.aspect == Aspects.ROCK;
     }
 
     static bool voidPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.VOID;
+        return p.aspect == Aspects.FLOOD;
     }
 
     static bool heartPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.HEART;
+        return p.aspect == Aspects.MILK;
     }
 
     static bool timePlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.TIME;
+        return p.aspect == Aspects.KNIFE;
     }
 
     static bool breathPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.BREATH;
+        return p.aspect == Aspects.WINE;
     }
 
     static bool lightPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.LIGHT;
+        return p.aspect == Aspects.BLAZE;
     }
 
     static bool spacePlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.SPACE;
+        return p.aspect == Aspects.SPEAR;
     }
 
     static bool hopePlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.HOPE;
+        return p.aspect == Aspects.FRUIT;
     }
 
     static bool lifePlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.LIFE;
+        return p.aspect == Aspects.OIL;
     }
 
     static bool doomPlayer(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.DOOM;
+        return p.aspect == Aspects.SPICE;
     }
 
 
@@ -219,7 +219,7 @@ class QuestChainFeature extends Feature {
 
     static bool playerIsFateAspect(List<GameEntity> ps) {
         Player p = ps.first as Player;
-        return p.aspect == Aspects.DOOM || p.aspect == Aspects.TIME;
+        return p.aspect == Aspects.SPICE || p.aspect == Aspects.KNIFE;
     }
 
     //make quest chains be a weighted list so default option is ALWAYS very unlikely to trigger. or something.

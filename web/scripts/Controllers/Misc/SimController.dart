@@ -78,8 +78,8 @@ abstract class SimController {
         scratch += " Their former guardians, the " + getPlayersTitlesBasic(s.players) + " will now be the players.";
         scratch += " The new players will be given stat boosts to give them a better chance than the previous generation.";
 
-        Player suddenDeath = findAspectPlayer(raggedPlayers, Aspects.LIFE);
-        if (suddenDeath == null) suddenDeath = findAspectPlayer(raggedPlayers, Aspects.DOOM);
+        Player suddenDeath = findAspectPlayer(raggedPlayers, Aspects.OIL);
+        if (suddenDeath == null) suddenDeath = findAspectPlayer(raggedPlayers, Aspects.SPICE);
 
         //NOT over time. literally sudden death. thanks meenah!
         List<Player> livingRagged = findLiving(raggedPlayers);
@@ -143,7 +143,7 @@ abstract class SimController {
 
 
     void renderScratchButton(Session session) {
-        Player timePlayer = findAspectPlayer(session.players, Aspects.TIME);
+        Player timePlayer = findAspectPlayer(session.players, Aspects.KNIFE);
         if (timePlayer == null) throw "CAN'T SCRATCH WITHOUT A TIME PLAYER, JACKASS";
         //
         //alert("scratch [possible]");

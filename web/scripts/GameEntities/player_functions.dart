@@ -62,7 +62,7 @@ void syncReplayNumberToPlayerNumber(List<Player> replayPlayers, Session session)
         ////print("Have: " + session.players.length + " need: " + replayPlayers.length + " think the difference is: " + numNeeded);
         for (int i = 0; i < numNeeded; i++) {
             // //print("making new player: " + i);
-            session.players.add(randomPlayerWithClaspect(session, SBURBClassManager.PAGE, Aspects.VOID));
+            session.players.add(randomPlayerWithClaspect(session, SBURBClassManager.PAGE, Aspects.FLOOD));
         }
         ////print("Number of players is now: " + session.players.length);
         return;
@@ -93,7 +93,7 @@ Player blankPlayerNoDerived(Session session) {
     Moon m = session.prospit;
     //	Player([String name, Session session, this.class_name, this.aspect, this.object_to_prototype, this.moon, this.godDestiny, num id]): super(name, id, session);
 
-    Player p = new Player(session, SBURBClassManager.PAGE, Aspects.VOID, k, m, gd);
+    Player p = new Player(session, SBURBClassManager.PAGE, Aspects.FLOOD, k, m, gd);
     p.interest1 = InterestManager.getRandomInterest(session.rand);
     p.interest2 = InterestManager.getRandomInterest(session.rand);
     p.baby = 1;
@@ -197,7 +197,7 @@ Player randomSpacePlayer(Session session) {
     //remove class from available
     SBURBClass c = session.rand.pickFrom(session.available_classes_players);
     removeFromArray(c, session.available_classes_players);
-    Aspect a = Aspects.SPACE;
+    Aspect a = Aspects.SPEAR;
     removeFromArray(a, session.available_aspects);
     return randomPlayerWithClaspect(session, c, a);
 }
@@ -207,7 +207,7 @@ Player randomTimePlayer(Session session) {
     //remove class from available
     SBURBClass c = session.rand.pickFrom(session.available_classes_players);
     removeFromArray(c, session.available_classes_players);
-    Aspect a = Aspects.TIME;
+    Aspect a = Aspects.KNIFE;
     removeFromArray(a, session.available_aspects);
     return randomPlayerWithClaspect(session, c, a);
 }

@@ -153,7 +153,7 @@ class PlayerSpriteHandler {
             Drawing.ghostSwap(canvas);
         }
 
-        if (!baby && player.aspect == Aspects.VOID) {
+        if (!baby && player.aspect == Aspects.FLOOD) {
             Drawing.voidSwap(canvas, 1 - player.getStat(Stats.POWER) / (2000 * Stats.POWER.coefficient)); //a void player at 2000 power is fully invisible.
         }else if(player.session.mutator.lightField && !player.session.mutator.hasSpotLight(player)) {
             Drawing.voidSwap(canvas, 0.2); //compared to the light player, you are irrelevant.

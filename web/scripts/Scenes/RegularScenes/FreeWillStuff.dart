@@ -108,7 +108,7 @@ class FreeWillStuff extends Scene {
             ////session.logger.info("disengage murde mode");
             String ret = "";
             var enemies = player.getEnemiesFromList(findLiving(this.session.players));
-            var spacePlayerEnemy = findAspectPlayer(enemies, Aspects.SPACE);
+            var spacePlayerEnemy = findAspectPlayer(enemies, Aspects.SPEAR);
             var ectobiologistEnemy = session.getLeader(enemies);
             //not everybody knows about ectobiology.
             if (!this.session.stats.ectoBiologyStarted && ectobiologistEnemy != null && (player.gnosis >= 2 && player.grimDark < 2)) {
@@ -145,7 +145,7 @@ class FreeWillStuff extends Scene {
     }
 
     bool isValidTargets(List<Player> enemies, Player player) {
-        Player spacePlayerEnemy = findAspectPlayer(enemies, Aspects.SPACE);
+        Player spacePlayerEnemy = findAspectPlayer(enemies, Aspects.SPEAR);
         Player ectobiologistEnemy = session.getLeader(enemies);
         if (spacePlayerEnemy != null && spacePlayerEnemy.landLevel < this.session.goodFrogLevel && (player.gnosis >= 2 && player.grimDark < 2)) { //grim dark players don't care if it dooms things.
             return false;
@@ -212,7 +212,7 @@ class FreeWillStuff extends Scene {
             }
         }
         if (!ret.murderMode) ret = null;
-        if (ret == player && player.aspect != Aspects.TIME) ret = null; //you should TOTALLY be able to calm your past selves shit.
+        if (ret == player && player.aspect != Aspects.KNIFE) ret = null; //you should TOTALLY be able to calm your past selves shit.
         return ret;
     }
 
@@ -220,7 +220,7 @@ class FreeWillStuff extends Scene {
         ////session.logger.info(player.title() + " is looking for a god tier besides themselves: " + this.session.session_id)
         Relationship ret = null;
         num ret_abs_value = 0; //apparently HAS to be  a num cause both double and int crash
-        if (player.aspect.isThisMe(Aspects.TIME) && !player.godTier) return player; //god tier yourself first.
+        if (player.aspect.isThisMe(Aspects.KNIFE) && !player.godTier) return player; //god tier yourself first.
         //ideally somebody i wouldn't miss too much if they were gone, and wouldn't fear too much if they had phenomenal cosmic power. so. lowest abs value.
         for (int i = 0; i < player.relationships.length; i++) {
             Relationship r = player.relationships[i];
@@ -231,7 +231,7 @@ class FreeWillStuff extends Scene {
             }
         }
 
-        if (ret.target == player && player.aspect != Aspects.TIME) ret = null;
+        if (ret.target == player && player.aspect != Aspects.KNIFE) ret = null;
         if(ret == null) return null;
         return ret.target;
     }
@@ -242,7 +242,7 @@ class FreeWillStuff extends Scene {
         List<Player> friends = player.getFriendsFromList(living);
         for (num i = 0; i < living.length; i++) {
             var p = living[i];
-            if (p != player || player.aspect.isThisMe(Aspects.TIME)) { //can't be own patsy
+            if (p != player || player.aspect.isThisMe(Aspects.KNIFE)) { //can't be own patsy
                 if (bestPatsy == null) {
                     bestPatsy = [p, this.howManyEnemiesInCommon(enemies, p)];
                 } else if (!p.murderMode) { //not already in murder mode
@@ -260,13 +260,13 @@ class FreeWillStuff extends Scene {
     }
 
     bool canInfluenceEnemies(Player player) {
-        if (player.aspect.isThisMe(Aspects.BLOOD) || player.aspect.isThisMe(Aspects.HEART) || player.aspect.isThisMe(Aspects.MIND)) {
+        if (player.aspect.isThisMe(Aspects.BREAD) || player.aspect.isThisMe(Aspects.MILK) || player.aspect.isThisMe(Aspects.HONEY)) {
             if (player.class_name == SBURBClassManager.MAID || player.class_name == SBURBClassManager.SEER || player.class_name == SBURBClassManager.BARD || player.class_name == SBURBClassManager.ROGUE) {
                 return true;
             }
         }
 
-        if (player.aspect.isThisMe(Aspects.RAGE)) {
+        if (player.aspect.isThisMe(Aspects.ROCK)) {
             if (player.class_name == SBURBClassManager.SEER || player.class_name == SBURBClassManager.MAID) {
                 return true;
             }
@@ -275,13 +275,13 @@ class FreeWillStuff extends Scene {
     }
 
     bool canAlterNegativeFate(Player player) {
-        if (player.aspect .isThisMe(Aspects.LIGHT) || player.aspect.isThisMe(Aspects.LIFE) || player.aspect.isThisMe(Aspects.HEART) || player.aspect.isThisMe(Aspects.MIND)) {
+        if (player.aspect .isThisMe(Aspects.BLAZE) || player.aspect.isThisMe(Aspects.OIL) || player.aspect.isThisMe(Aspects.MILK) || player.aspect.isThisMe(Aspects.HONEY)) {
             if (player.class_name == SBURBClassManager.MAID || player.class_name == SBURBClassManager.SEER) {
                 return true;
             }
         }
 
-        if (player.aspect.isThisMe(Aspects.DOOM)) {
+        if (player.aspect.isThisMe(Aspects.SPICE)) {
             if (player.class_name == SBURBClassManager.BARD || player.class_name == SBURBClassManager.ROGUE || player.class_name == SBURBClassManager.MAID || player.class_name == SBURBClassManager.SEER) {
                 return true;
             }
@@ -291,26 +291,26 @@ class FreeWillStuff extends Scene {
 
     String getManipulatableTrait(Player player) {
         String ret = "???";
-        if (player.aspect.isThisMe(Aspects.HEART)) ret = "identity";
-        if (player.aspect.isThisMe(Aspects.BLOOD)) ret = "relationships";
-        if (player.aspect.isThisMe(Aspects.MIND)) ret = "mind";
-        if (player.aspect.isThisMe(Aspects.RAGE)) ret = "sanity";
-        if (player.aspect.isThisMe(Aspects.HOPE)) ret = "beliefs";
-        if (player.aspect.isThisMe(Aspects.DOOM)) ret = "fear";
-        if (player.aspect.isThisMe(Aspects.BREATH)) ret = "motivation";
-        if (player.aspect.isThisMe(Aspects.SPACE)) ret = "commitment";
-        if (player.aspect.isThisMe(Aspects.TIME)) ret = "fate";
-        if (player.aspect.isThisMe(Aspects.LIGHT)) ret = "luck";
-        if (player.aspect.isThisMe(Aspects.VOID)) ret = "nothing";
-        if (player.aspect.isThisMe(Aspects.LIFE)) ret = "purpose";
+        if (player.aspect.isThisMe(Aspects.MILK)) ret = "identity";
+        if (player.aspect.isThisMe(Aspects.BREAD)) ret = "relationships";
+        if (player.aspect.isThisMe(Aspects.HONEY)) ret = "mind";
+        if (player.aspect.isThisMe(Aspects.ROCK)) ret = "sanity";
+        if (player.aspect.isThisMe(Aspects.FRUIT)) ret = "beliefs";
+        if (player.aspect.isThisMe(Aspects.SPICE)) ret = "fear";
+        if (player.aspect.isThisMe(Aspects.WINE)) ret = "motivation";
+        if (player.aspect.isThisMe(Aspects.SPEAR)) ret = "commitment";
+        if (player.aspect.isThisMe(Aspects.KNIFE)) ret = "fate";
+        if (player.aspect.isThisMe(Aspects.BLAZE)) ret = "luck";
+        if (player.aspect.isThisMe(Aspects.FLOOD)) ret = "nothing";
+        if (player.aspect.isThisMe(Aspects.OIL)) ret = "purpose";
         return ret;
     }
 
     String getInfluenceSymbol(player) {
-        if (player.aspect.isThisMe(Aspects.MIND)) return "mind_forehead.png";
-        if (player.aspect.isThisMe(Aspects.RAGE)) return "rage_forehead.png";
-        if (player.aspect.isThisMe(Aspects.BLOOD)) return "blood_forehead.png";
-        if (player.aspect.isThisMe(Aspects.HEART)) return "heart_forehead.png";
+        if (player.aspect.isThisMe(Aspects.HONEY)) return "mind_forehead.png";
+        if (player.aspect.isThisMe(Aspects.ROCK)) return "rage_forehead.png";
+        if (player.aspect.isThisMe(Aspects.BREAD)) return "blood_forehead.png";
+        if (player.aspect.isThisMe(Aspects.MILK)) return "heart_forehead.png";
         return null;
     }
 
@@ -341,7 +341,7 @@ class FreeWillStuff extends Scene {
                 if (player == patsy) {
                     loop = "You get dizzy trying to follow the time logic that must have caused this to happen. Did they only go crazy because their future self went crazy because THEIR future self went crazy....? Or wait, is this a doomed time clone...? Fuck. Time is the shittiest aspect.";
                     ////session.logger.info(player.title() +" convincing past/future self to go murder mode " + this.session.session_id);
-                } else if (player.aspect.isThisMe(Aspects.TIME) && rand.nextDouble() > .25) { //most manipulative time bastards are from teh future
+                } else if (player.aspect.isThisMe(Aspects.KNIFE) && rand.nextDouble() > .25) { //most manipulative time bastards are from teh future
                     timeIntro = " from the future";
                 }
                 ////session.logger.info("forcing someone else to be flipping shit");
@@ -422,7 +422,7 @@ class FreeWillStuff extends Scene {
             if (player == sacrifice) {
                 loop = "You get dizzy trying to follow the time logic that must have caused this to happen. Did they try to god tier because their future self told them to? But the future self only told them to because THEIR future self told them... Or wait, is this a doomed time clone...? Fuck. Time is the shittiest aspect.";
                 //session.logger.info(player.title() + " convincing past/future self to go god tier ${this.session.session_id}");
-            } else if (player.aspect.isThisMe(Aspects.TIME) && rand.nextDouble() > .25) {
+            } else if (player.aspect.isThisMe(Aspects.KNIFE) && rand.nextDouble() > .25) {
                 timeIntro = " from the future";
             }
             String intro = "The " + player.htmlTitleBasic() + timeIntro + " knows how the god tiering mechanic works";
@@ -639,7 +639,7 @@ class FreeWillStuff extends Scene {
     String considerMakingEctobiologistDoJob(Player player) {
         if (!this.session.stats.ectoBiologyStarted && player.gnosis > 0 && player.grimDark < 2) {
             String timeIntro = "";
-            if (player.aspect.isThisMe(Aspects.TIME) && rand.nextDouble() > .25) {
+            if (player.aspect.isThisMe(Aspects.KNIFE) && rand.nextDouble() > .25) {
                 timeIntro = " from the future";
             }
             if (player.leader) {
@@ -671,7 +671,7 @@ class FreeWillStuff extends Scene {
     }
 
     String considerMakingSpacePlayerDoJob(Player player) {
-        Player space = findAspectPlayer(availablePlayers, Aspects.SPACE);
+        Player space = findAspectPlayer(availablePlayers, Aspects.SPEAR);
         if (space != null && space.landLevel < this.session.goodFrogLevel && player.gnosis > 0 && player.grimDark < 2) { //grim dark players don't care about sburb
             if (player == space) {
                 ////session.logger.info(player.title() +" did their damn job breeding frogs. " +this.session.session_id);
@@ -680,7 +680,7 @@ class FreeWillStuff extends Scene {
                 return "The " + player.htmlTitle() + " is not going to fall into SBURB's trap. They know why frog breeding is important, and they are going to fucking DO it. ";
             } else {
                 String timeIntro = "";
-                if (player.aspect.isThisMe(Aspects.TIME) && rand.nextDouble() > .25) {
+                if (player.aspect.isThisMe(Aspects.KNIFE) && rand.nextDouble() > .25) {
                     timeIntro = " from the future";
                 }
                 if (!space.dead) {

@@ -118,13 +118,13 @@ class Aftermath extends Scene {
         var dead = findDeadPlayers(this.session.players);
         //time players doesn't HAVE to be alive, but it makes it way more likely.
         var singleUseOfSeed = rand.nextDouble();
-        var timePlayer = findAspectPlayer(living, Aspects.TIME);
+        var timePlayer = findAspectPlayer(living, Aspects.KNIFE);
         if (timePlayer == null && singleUseOfSeed > .5) {
-            timePlayer = findAspectPlayer(this.session.players, Aspects.TIME);
+            timePlayer = findAspectPlayer(this.session.players, Aspects.KNIFE);
         }
         if (dead.length >= living.length && timePlayer != null || this.session.janusReward) {
             //////session.logger.info("Time Player: " + timePlayer);
-            timePlayer = findAspectPlayer(this.session.players, Aspects.TIME); //NEED to have a time player here.;
+            timePlayer = findAspectPlayer(this.session.players, Aspects.KNIFE); //NEED to have a time player here.;
             var s = new YellowYard(this.session);
             s.timePlayer = timePlayer;
             s.trigger(null);

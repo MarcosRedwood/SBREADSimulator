@@ -45,7 +45,7 @@ class Thief extends SBURBClass {
     @override
     bool isHelpful = false;
 
-    Thief() : super("Thief", 7, true);
+    Thief() : super("Blade", 7, true);
 
     @override
     bool highHinit() {

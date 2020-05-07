@@ -442,7 +442,7 @@ class Session {
 
         battleFieldThemes[battleFieldTheme] = Theme.HIGH;
         //;
-        battlefield = new Battlefield.fromWeightedThemes("BattleField", battleFieldThemes, this, Aspects.LIGHT);
+        battlefield = new Battlefield.fromWeightedThemes("BattleField", battleFieldThemes, this, Aspects.BLAZE);
         battlefield.spawnKings();
     }
 
@@ -566,17 +566,17 @@ class Session {
         derseThemes[derseTheme] = Theme.HIGH;
         furthestRingThemes[furthestRingTheme] = Theme.HIGH;
 
-         prospit = new Moon.fromWeightedThemes(prospitRing, prospitScepter, "Prospit", prospitThemes, this, Aspects.LIGHT, session_id, ReferenceColours.PROSPIT_PALETTE);
+         prospit = new Moon.fromWeightedThemes(prospitRing, prospitScepter, "Prospit", prospitThemes, this, Aspects.BLAZE, session_id, ReferenceColours.PROSPIT_PALETTE);
          //;
 
          prospit.associatedEntities.addAll(npcHandler.getProspitians());
-         derse = new Moon.fromWeightedThemes(derseRing, derseScepter, "Derse", derseThemes, this, Aspects.VOID, session_id +1, ReferenceColours.DERSE_PALETTE);
+         derse = new Moon.fromWeightedThemes(derseRing, derseScepter, "Derse", derseThemes, this, Aspects.FLOOD, session_id +1, ReferenceColours.DERSE_PALETTE);
         // ;
 
          derse.associatedEntities.addAll(npcHandler.getDersites());
          //;
 
-         furthestRing = new Moon.fromWeightedThemes(null,null,"Furthest Ring", furthestRingThemes, this, Aspects.SAUCE, session_id, ReferenceColours.DERSE_PALETTE);
+         furthestRing = new Moon.fromWeightedThemes(null,null,"Furthest Ring", furthestRingThemes, this, Aspects.CANT, session_id, ReferenceColours.DERSE_PALETTE);
 
          for(Player p in players) {
              p.syncToSessionMoon();
@@ -616,7 +616,7 @@ class Session {
         }
         Player p = p1;
         //if you're dead, you're removed even if time/breath NOT doing this in old system probably caused some livly corpse bugs
-        if(p.dead || !(p.aspect == Aspects.TIME || p.aspect == Aspects.BREATH || mutator.breathField)) {
+        if(p.dead || !(p.aspect == Aspects.KNIFE || p.aspect == Aspects.WINE || mutator.breathField)) {
             //logger.info("removing player $p");
             p.available = false;
         }else {
@@ -648,7 +648,7 @@ class Session {
             this.available_classes_guardians = new List<SBURBClass>.from(SBURBClassManager.all);
             this.available_aspects = new List<Aspect>.from(Aspects.all);
         }
-      this.required_aspects = <Aspect>[Aspects.TIME, Aspects.SPACE];
+      this.required_aspects = <Aspect>[Aspects.KNIFE, Aspects.SPEAR];
     }
 
     //what aspects do the plaeyrs have
@@ -998,7 +998,7 @@ class Session {
     }
 
     Player findBestSpace() {
-        List<Player> spaces = findAllAspectPlayers(this.players, Aspects.SPACE);
+        List<Player> spaces = findAllAspectPlayers(this.players, Aspects.SPEAR);
         if (spaces.isEmpty) return null;
         Player ret = spaces[0];
         for (num i = 0; i < spaces.length; i++) {
@@ -1022,7 +1022,7 @@ class Session {
     }
 
     Player findMostCorruptedSpace() {
-        List<Player> spaces = findAllAspectPlayers(this.players, Aspects.SPACE);
+        List<Player> spaces = findAllAspectPlayers(this.players, Aspects.SPEAR);
         if (spaces.isEmpty) return null;
         Player ret = spaces[0];
         for (num i = 0; i < spaces.length; i++) {
@@ -1539,7 +1539,7 @@ class Session {
         for (num j = 0; j < this.players.length; j++) {
             Player p = this.players[j];
             p.generateRelationships(this.players);
-            if(p.aspect != Aspects.TIME) {
+            if(p.aspect != Aspects.KNIFE) {
                 p.active = false;
             }else {
                 p.active = true;

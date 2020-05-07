@@ -53,7 +53,7 @@ class Heir extends SBURBClass {
     @override
     bool isHelpful = true;
 
-    Heir() : super("Heir", 8, true);
+    Heir() : super("Lamb", 8, true);
 
     @override
     bool highHinit() {

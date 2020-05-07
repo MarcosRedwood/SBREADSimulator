@@ -48,7 +48,7 @@ class Mage extends SBURBClass {
     @override
     bool isHelpful = false;
 
-    Mage() : super("Mage", 2, true);
+    Mage() : super("Luke", 2, true);
 
     @override
     List<AssociatedStat> stats = new List<AssociatedStat>.unmodifiable(<AssociatedStat>[

@@ -307,19 +307,19 @@ dynamic loadAllPossiblePlayers(Session session, skipInit){
         loadImage(session,"Wings/wing${i}.png",skipInit);
       }
 
-      loadImage(session,"Blood.png",skipInit);
-      loadImage(session,"Mind.png",skipInit);
-      loadImage(session,"Rage.png",skipInit);
+      loadImage(session,"Bread.png",skipInit);
+      loadImage(session,"Honey.png",skipInit);
+      loadImage(session,"Rock.png",skipInit);
       loadImage(session,"Time.png",skipInit);
-      loadImage(session,"Void.png",skipInit);
-      loadImage(session,"Heart.png",skipInit);
-      loadImage(session,"Breath.png",skipInit);
+      loadImage(session,"Flood.png",skipInit);
+      loadImage(session,"Milk.png",skipInit);
+      loadImage(session,"Wine.png",skipInit);
 	  loadImage(session,"Dream.png",skipInit);
-      loadImage(session,"Light.png",skipInit);
-      loadImage(session,"Space.png",skipInit);
-      loadImage(session,"Hope.png",skipInit);
-      loadImage(session,"Life.png",skipInit);
-      loadImage(session,"Doom.png",skipInit);
+      loadImage(session,"Blaze.png",skipInit);
+      loadImage(session,"Spear.png",skipInit);
+      loadImage(session,"Fruit.png",skipInit);
+      loadImage(session,"Oil.png",skipInit);
+      loadImage(session,"Spice.png",skipInit);
 
 
 

@@ -115,7 +115,7 @@ class GodTierRevival extends Scene {
 						p.canGodTierRevive = true;
 						p.increasePower();
 						p.makeAlive();
-						if (p.aspect == Aspects.DOOM) { //powered by their own doom.
+						if (p.aspect == Aspects.SPICE) { //powered by their own doom.
 							//session.logger.info("doom is powered by their own death: " + this.session.session_id.toString()); //omg, they are sayians.
 							p.addStat(Stats.POWER, 500);
 							p.setStat(Stats.MIN_LUCK, 500); //prophecy fulfilled. you are no longer doomed. (will probably get drained again quickly, tho).  Do...do doom players EVER revive?????

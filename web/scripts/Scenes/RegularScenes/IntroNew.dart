@@ -69,7 +69,7 @@ class IntroNew extends IntroScene {
       }else{
           this.changePrototyping(div);
           narration += "<br>The " + this.player.htmlTitleWithTip() + " enters the game " + indexToWords(i) + ". ";
-          if(this.player.aspect == Aspects.VOID) narration += "They are " + this.player.voidDescription() +". ";
+          if(this.player.aspect == Aspects.FLOOD) narration += "They are " + this.player.voidDescription() +". ";
           narration += " They manage to prototype their kernel sprite with a " + this.player.object_to_prototype.htmlTitle() + " pre-entry. ";
           narration += this.corruptedSprite();
 
@@ -447,29 +447,29 @@ class IntroNew extends IntroScene {
         return "";
     }
     String changeBoggle(){
-        if(this.player.aspect == Aspects.BLOOD){
+        if(this.player.aspect == Aspects.BREAD){
             return " They boggle vacantly at the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.MIND){
+        }else if(this.player.aspect == Aspects.HONEY){
             return " They ogle at the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.RAGE){
+        }else if(this.player.aspect == Aspects.ROCK){
             return " They glare with bafflement at the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.TIME){
+        }else if(this.player.aspect == Aspects.KNIFE){
             return " They are very confused by the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.VOID){
+        }else if(this.player.aspect == Aspects.FLOOD){
             return " They stare blankly at the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.HEART){
+        }else if(this.player.aspect == Aspects.MILK){
             return " They run around excitedly in the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.BREATH){
+        }else if(this.player.aspect == Aspects.WINE){
             return " They grin excitedly at the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.LIGHT){
+        }else if(this.player.aspect == Aspects.BLAZE){
             return " They stare at the " + this.player.land.name + " with unrestrained curiosity. ";
-        }else if(this.player.aspect == Aspects.SPACE){
+        }else if(this.player.aspect == Aspects.SPEAR){
             return " They do not even understand the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.HOPE){
+        }else if(this.player.aspect == Aspects.FRUIT){
             return " They are enthused about the " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.LIFE){
+        }else if(this.player.aspect == Aspects.OIL){
             return " They are obviously pleased with " + this.player.land.name + ". ";
-        }else if(this.player.aspect == Aspects.DOOM){
+        }else if(this.player.aspect == Aspects.SPICE){
             return " They stare with trepidation at the " + this.player.land.name + ". ";
         }
         return  "They boggle vacantly at the " + this.player.land.name + ". ";
@@ -482,7 +482,7 @@ class IntroNew extends IntroScene {
            // String canvasHTML = "<br><canvas id='canvaskernel" + divID+"' width='" +canvasWidth.toString() + "' height="+canvasHeight.toString() + "'>  </canvas>";
             CanvasElement canvas = new CanvasElement(width: canvasWidth, height: canvasHeight);
             div.append(canvas);
-            List<Player> times = findAllAspectPlayers(this.session.players, Aspects.TIME); //they don't have to be in the medium, though
+            List<Player> times = findAllAspectPlayers(this.session.players, Aspects.KNIFE); //they don't have to be in the medium, though
             Player timePlayer = rand.pickFrom(times); //ironically will probably allow more timeless sessions without crashes.
             Drawing.drawTimeGears(canvas);
             Drawing.drawSinglePlayer(canvas, timePlayer);
@@ -517,7 +517,7 @@ class IntroNew extends IntroScene {
     ImportantEvent addImportantEvent(){
         var current_mvp = findStrongestPlayer(this.session.players);
         ////session.logger.info("Entering session, mvp is: " + current_mvp.getStat(Stats.POWER));
-        if(this.player.aspect == Aspects.TIME && this.player.object_to_prototype != null && !this.player.object_to_prototype.illegal){ //tier4 gnosis is weird
+        if(this.player.aspect == Aspects.KNIFE && this.player.object_to_prototype != null && !this.player.object_to_prototype.illegal){ //tier4 gnosis is weird
             return this.session.addImportantEvent(new TimePlayerEnteredSessionWihtoutFrog(this.session, current_mvp.getStat(Stats.POWER),this.player,null) );
         }else{
             return this.session.addImportantEvent(new PlayerEnteredSession(this.session, current_mvp.getStat(Stats.POWER),this.player,null) );

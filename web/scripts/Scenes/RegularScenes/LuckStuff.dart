@@ -60,7 +60,7 @@ class LuckStuff extends Scene{
 	}
 	String roll60(Roll roll){
 		////session.logger.info("roll60 in " + this.session.session_id);
-		if(roll.player.land == null || roll.player.land.dead|| (roll.player.aspect != Aspects.SPACE && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
+		if(roll.player.land == null || roll.player.land.dead|| (roll.player.aspect != Aspects.SPEAR && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
 			return this.roll65(roll);
 		}
 		String ret = "The " + roll.player.htmlTitle() + " was just wandering around on " + roll.player.shortLand()+ " when they suddenly tripped over a huge treasure chest! When opened, it revealed a modest hoard of grist. It will be easier to complete their land quests now.";
@@ -134,7 +134,7 @@ class LuckStuff extends Scene{
 	}
 	String roll80(Roll roll){
 		////session.logger.info("roll80 in " + this.session.session_id);
-		if(roll.player.land == null || roll.player.land.dead || (roll.player.aspect != Aspects.SPACE && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
+		if(roll.player.land == null || roll.player.land.dead || (roll.player.aspect != Aspects.SPEAR && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
 			return this.roll85(roll);
 		}
 
@@ -192,11 +192,11 @@ class LuckStuff extends Scene{
 	}
 	String roll95(Roll roll){
 		////session.logger.info("roll95 in " + this.session.session_id);
-		if(roll.player.land == null || roll.player.land.dead || (roll.player.aspect != Aspects.SPACE && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
+		if(roll.player.land == null || roll.player.land.dead || (roll.player.aspect != Aspects.SPEAR && roll.player.landLevel >= this.landLevelNeeded)){  //not lucky to get land level when you don't need it.
 			return this.roll90(roll);
 		}
 		String ret = "Through a frankly preposterous level of Scooby-Doo shenanigans, the  " + roll.player.htmlTitle() + " trips into a wall, which depresses a panel, which launches a catapult, which throws impudent fruit at a nearby Ogre, which wakes him up, which makes him wander away, which frees the local consorts from his tyranny, who then celebrate an end to their famine by eating the fruit.  All of which causes, like, a third of the main quest of "  + roll.player.shortLand() + " to be completed. ";
-		if(roll.player.aspect.isThisMe(Aspects.SPACE)){
+		if(roll.player.aspect.isThisMe(Aspects.SPEAR)){
 			ret += "Wait. What the HELL!? Is that last Frog!? Just sitting there? Right in front of the " + roll.player.htmlTitle() + "!? No time shenanigans or prophecies or god damned Choices!? It's just...there. Well. Damn. That'll make the frog breeding WAY easier.";
 		}
 		roll.player.increaseLandLevel(3.0);

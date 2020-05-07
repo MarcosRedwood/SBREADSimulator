@@ -12,13 +12,13 @@ class FrogBreedingNeedsHelp extends ImportantEvent {
 
     @override
     String humanLabel(){
-        var spacePlayer = findAspectPlayer(this.session.players, Aspects.SPACE);
+        var spacePlayer = findAspectPlayer(this.session.players, Aspects.SPEAR);
         String ret = "Help the " + spacePlayer.htmlTitleBasicNoTip() + " complete frog breeding duties.";
         return ret;
     }
     @override
     bool alternateScene(div){
-        var spacePlayer = findAspectPlayer(this.session.players, Aspects.SPACE);
+        var spacePlayer = findAspectPlayer(this.session.players, Aspects.SPEAR);
         this.timesCalled ++;
         this.doomedTimeClone.dead = false;
         this.doomedTimeClone.setStat(Stats.CURRENT_HEALTH, this.doomedTimeClone.getStat(Stats.HEALTH));

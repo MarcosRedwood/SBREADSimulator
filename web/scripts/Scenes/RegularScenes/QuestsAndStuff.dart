@@ -179,7 +179,7 @@ class QuestsAndStuff extends Scene {
                 helperText = "$helperText The $helperName is helping where they can. ";
             }
             helperText = "$helperText ${player.interactionEffect(helper)} "; //players always have an effect.
-            if(helper == player && player.aspect != Aspects.TIME) session.logger.info("AB: non time player is their own helper: $helperText ");
+            if(helper == player && player.aspect != Aspects.KNIFE) session.logger.info("AB: non time player is their own helper: $helperText ");
             if(helper is Player) helperText = "$helperText ${helper.interactionEffect(player)} <br><Br>"; //helpers do not.
 
         }
@@ -193,7 +193,7 @@ class QuestsAndStuff extends Scene {
             appendHtml(div, "<br><br>The ${player.htmlTitleBasicNoTip()}'s house has been built up enough to let them start visiting other lands. ");
         }
 
-        if(player.aspect == Aspects.SPACE && getParameterByName("spacePlayers") == "screwed") {
+        if(player.aspect == Aspects.SPEAR && getParameterByName("spacePlayers") == "screwed") {
             //i've already killed sextellions, may as well do this,too, wait, let me go find out if shogun wants dibs
             //yup, he wants dibs. I can't keep doing villanous things if I'm supposed to be the 'good guy' after all.
             DivElement joke = new DivElement();

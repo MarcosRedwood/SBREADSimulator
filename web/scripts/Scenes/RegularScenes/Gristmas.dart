@@ -71,7 +71,7 @@ class Gristmas extends Scene {
 
   bool makeRobot(Element div) {
       if(!playerCanMakeRobot(player)) return false;
-      List<Player> possibleRobots = findAllAspectPlayers(session.players, Aspects.HEART);
+      List<Player> possibleRobots = findAllAspectPlayers(session.players, Aspects.MILK);
       Player p ;
       possibleRobots.add(player);
       String robot = "themself";

@@ -240,7 +240,7 @@ class Player extends GameEntity{
         for(Item item in sylladex) {
             //;
 
-            if(item is MagicalItem && aspect.isThisMe(Aspects.SAUCE)) {
+            if(item is MagicalItem && aspect.isThisMe(Aspects.CANT)) {
                 MagicalItem m = item as MagicalItem;
                 //only sauce players can use the ring
                 ret.addAll(m.fraymotifs);
@@ -490,16 +490,16 @@ class Player extends GameEntity{
         if(!isDreamSelf && dreamSelf) canSkaia = true;
 
         //i know for a fact this is rare enough that i'll forget i added it.
-        if(dreamSelf && aspect != Aspects.TIME && aspect != Aspects.SPACE &&  sylladex.containsWord("Sauce")) {
-            aspect = Aspects.SAUCE;
+        if(dreamSelf && aspect != Aspects.KNIFE && aspect != Aspects.SPEAR &&  sylladex.containsWord("Sauce")) {
+            aspect = Aspects.CANT;
             session.logger.info("AB: Bluh. One of Shogun's Sauce Glitches just triggered. Better tell JR.");
             fraymotifs.add(new Fraymotif("Seinfeld Remix", 13)
                 ..effects.add(new FraymotifEffect(Stats.FREE_WILL, 2, true))
                 ..desc = " What the fuck? What even is this? Is it a riddle? I thought JR said it wasn't important... ");
         }
 
-        if(dreamSelf && aspect != Aspects.TIME && aspect != Aspects.SPACE &&  sylladex.containsWord("Juice")) {
-            aspect = Aspects.JUICE;
+        if(dreamSelf && aspect != Aspects.KNIFE && aspect != Aspects.SPEAR &&  sylladex.containsWord("Juice")) {
+            aspect = Aspects.HYMN;
             session.logger.info("AB: Bluh. One of Shogun's Juice Glitches just triggered. Better tell JR.");
             fraymotifs.add(new Fraymotif("Seinfeld Remix", 13)
                 ..effects.add(new FraymotifEffect(Stats.FREE_WILL, 2, true))
@@ -599,7 +599,7 @@ class Player extends GameEntity{
             ret = "${ret}Wasted ";
         }
         //refrance to shogun's april fools artwork
-        if(aspect == Aspects.SAUCE) {
+        if(aspect == Aspects.CANT) {
             ret = "$ret${this.class_name.sauceTitle} of ${this.aspect}";
         }else {
             ret = "$ret${this.class_name} of ${this.aspect}";
@@ -879,7 +879,7 @@ class Player extends GameEntity{
     }
 
     bool isVoidAvailable() {
-        Player light = findAspectPlayer(findLiving(this.session.players), Aspects.LIGHT);
+        Player light = findAspectPlayer(findLiving(this.session.players), Aspects.BLAZE);
         if (light != null && light.godTier) return false;
         return true;
     }
@@ -893,7 +893,7 @@ class Player extends GameEntity{
 
     bool hasPowers() {
         if(class_name == SBURBClassManager.WASTE || class_name == SBURBClassManager.GRACE) return false;
-        if(aspect.isThisMe(Aspects.TIME)) return true;  //they have it in the future after all. and
+        if(aspect.isThisMe(Aspects.KNIFE)) return true;  //they have it in the future after all. and
         if(godTier) return true; //you just do okay.
         if(land == null) return true;//you're a combo player.
         if(land.firstCompleted) { //you are starting to face your denizen
@@ -1046,7 +1046,7 @@ class Player extends GameEntity{
 
         //doom players with an interaction effect also spread doom. this is bad in short term and good in long
         //SHOULD be only bad against enemies, since they don't have revival mechanisms. right???
-        if(hasInteractionEffect() && aspect.isThisMe(Aspects.DOOM) && target.prophecy == ProphecyState.NONE) {
+        if(hasInteractionEffect() && aspect.isThisMe(Aspects.SPICE) && target.prophecy == ProphecyState.NONE) {
             ret = "There is a prophecy of the ${target.htmlTitle()}'s death.";
             target.prophecy = ProphecyState.ACTIVE;
         }
@@ -1299,7 +1299,7 @@ class Player extends GameEntity{
     }
 
     void checkBloodBoost(List<Player> players) {
-        if (this.aspect.isThisMe(Aspects.BLOOD)) { // TODO: ASPECTS - migrate to per-aspect boost?
+        if (this.aspect.isThisMe(Aspects.BREAD)) { // TODO: ASPECTS - migrate to per-aspect boost?
             for (num i = 0; i < players.length; i++) {
                 players[i].boostAllRelationships();
             }
@@ -1665,7 +1665,7 @@ class Player extends GameEntity{
     }
 
     void decideHemoCaste() {
-        if (this.aspect != Aspects.BLOOD) { //sorry karkat
+        if (this.aspect != Aspects.BREAD) { //sorry karkat
             this.bloodColor = session.rand.pickFrom(bloodColors);
         }
         this.applyPossiblePsionics();
@@ -2034,8 +2034,8 @@ class Player extends GameEntity{
             if (this.quirk == null) this.quirk = randomHumanSim(this.session.rand, this);
         }
         moonChance += session.rand.nextDouble() * -33; //different amount of time pre-game start to get in. (can still wake up before entry)
-        if(aspect.isThisMe(Aspects.SPACE)) moonChance += 33.0; //huge chance for space players.
-        if(aspect.isThisMe( Aspects.DOOM)) prophecy = ProphecyState.ACTIVE; //sorry doom players
+        if(aspect.isThisMe(Aspects.SPEAR)) moonChance += 33.0; //huge chance for space players.
+        if(aspect.isThisMe( Aspects.SPICE)) prophecy = ProphecyState.ACTIVE; //sorry doom players
         specibus.modMaxUpgrades(this);
     }
 
@@ -2110,7 +2110,7 @@ class Player extends GameEntity{
     }
 
     bool canHelp() {
-        return godTier || isDreamSelf || land == null || land.firstCompleted || (aspect.isThisMe(Aspects.BREATH) && hasPowers()) ;
+        return godTier || isDreamSelf || land == null || land.firstCompleted || (aspect.isThisMe(Aspects.WINE) && hasPowers()) ;
     }
 
     bool canGodTierSomeWay() {
@@ -2132,7 +2132,7 @@ class Player extends GameEntity{
         Player helper;
         if(session.mutator.lightField) return session.mutator.inSpotLight;
          //space player can ONLY be helped by knight, and knight prioritizes this
-         if(aspect.isThisMe(Aspects.SPACE)){//this shit is so illegal
+         if(aspect.isThisMe(Aspects.SPEAR)){//this shit is so illegal
              helper = findClassPlayer(players, SBURBClassManager.KNIGHT);
              //can help others 100% of the time if foreign player. you can like, fly and shit with your end game items.
              if(helper != null && helper.id != this.id && (helper.canHelp())){ //a knight of space can't help themselves.
@@ -2151,7 +2151,7 @@ class Player extends GameEntity{
          if(r != null && r.value > Relationship.CRUSHVALUE/2) {
             bestFriend = true;
          }
-        if(aspect.isThisMe(Aspects.TIME) && !bestFriend && rand.nextDouble() > .5){
+        if(aspect.isThisMe(Aspects.KNIFE) && !bestFriend && rand.nextDouble() > .5){
             ////;
             //;
 
@@ -2163,11 +2163,11 @@ class Player extends GameEntity{
         for(Player p in sortedChoices) {
             if(rand.nextDouble() > 0.75 && p.id != this.id) {
                 //space players are stuck on their land till they get their frog together.
-                if((p.aspect != Aspects.SPACE || p.landLevel > session.goodFrogLevel)  && p.canHelp()) {
+                if((p.aspect != Aspects.SPEAR || p.landLevel > session.goodFrogLevel)  && p.canHelp()) {
                     helper = p;
                     //;
                 }
-            }else if(((p.class_name == SBURBClassManager.PAGE || p.aspect.isThisMe(Aspects.BLOOD)) && p.id != this.id) && p.canHelp()) { //these are GUARANTEED to have helpers. not part of a big stupid if though in case i want to make it just higher odds l8r
+            }else if(((p.class_name == SBURBClassManager.PAGE || p.aspect.isThisMe(Aspects.BREAD)) && p.id != this.id) && p.canHelp()) { //these are GUARANTEED to have helpers. not part of a big stupid if though in case i want to make it just higher odds l8r
                 helper = p;
                // ;
             }

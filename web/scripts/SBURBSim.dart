@@ -147,9 +147,9 @@ bool printCorruptionMessage(Session session, ErrorEvent e) {
     bool timeBug = false;
     bool spacebug = true;
     if(session.players.length > 1) {
-        Player space = findAspectPlayer(session.players, Aspects.SPACE);
+        Player space = findAspectPlayer(session.players, Aspects.SPEAR);
         spacebug = space == null;
-        Player time = findAspectPlayer(session.players, Aspects.TIME);
+        Player time = findAspectPlayer(session.players, Aspects.KNIFE);
         timeBug = time == null;
     }
     if (session.stats.crashedFromPlayerActions) {
@@ -161,7 +161,7 @@ bool printCorruptionMessage(Session session, ErrorEvent e) {
     }else if(session.stats.ringWraithCrash) {
         appendHtml(story, "<BR>ERROR: RED MILES TARGETED UNIVERSE. SESSION HAS CRASHED.");
         recomendedAction = "I MEAN. IF IT GOT THIS BAD YOUR SESSION WAS PROBABLY FUCKED ANYWAYS. DON'T LET RING WRAITHS HAPPEN AND YOU'LL BE FINE. ISH.";
-    }else if((session is DeadSession) && session.players.first.aspect == Aspects.JUICE) {
+    }else if((session is DeadSession) && session.players.first.aspect == Aspects.HYMN) {
         appendHtml(story, "<BR>ERROR: Hey...Are you okay? You know juice players can't play alone, right?");
         recomendedAction = "You have friends, I promise.${mutatorsInPlay(session)}";
 

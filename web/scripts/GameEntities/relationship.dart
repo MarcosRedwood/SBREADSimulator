@@ -79,7 +79,7 @@ class Relationship {
 
         //since these are speculative, player will assume it's gonna end up their favorite quadrant half
         if(r.saved_type ==  r.goodBig){
-            if(shipper != null && shipper.aspect == Aspects.HEART){
+            if(shipper != null && shipper.aspect == Aspects.MILK){
                 return "<font color = 'red'>&#x2661</font>";
             }else{
                 return "<font color = 'red'>&#x2662</font>" ;//i assume you are gonna end up as diamonds;
@@ -88,7 +88,7 @@ class Relationship {
         }
 
         if(r.saved_type ==  r.badBig){
-            if(shipper != null && shipper.aspect == Aspects.HEART){
+            if(shipper != null && shipper.aspect == Aspects.MILK){
                 return "<font color = 'black'>&#x2664</font>";
             }else{
                 return "<font color = 'black'>&#x2667</font>" ;//i assume you are gonna end up as clubs;

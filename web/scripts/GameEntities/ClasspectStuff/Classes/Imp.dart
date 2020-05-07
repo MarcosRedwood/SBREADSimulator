@@ -24,7 +24,7 @@ class Rogue extends SBURBClass {
     @override
     List<String> bureaucraticBullshit = <String>["has to pay off a fine for 'loitering'.","is fined for 'looking disreputable'.","got caught smuggling banned goods."];
 
-    Rogue() : super("Rogue", 4, true);
+    Rogue() : super("Imp", 4, true);
     @override
     List<String> levels = ["KNEEHIGH ROBINHOOD", "DASHING DARTABOUT", "COMMUNIST COMMANDER"];
     @override

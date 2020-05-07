@@ -372,8 +372,8 @@ abstract class NonCanonSessions {
                 //;
             }else{
                 //;
-                player = randomPlayerNoDerived(session,SBURBClassManager.PAGE, Aspects.VOID);
-                guardian = randomPlayerNoDerived(session,SBURBClassManager.PAGE, Aspects.VOID);
+                player = randomPlayerNoDerived(session,SBURBClassManager.PAGE, Aspects.FLOOD);
+                guardian = randomPlayerNoDerived(session,SBURBClassManager.PAGE, Aspects.FLOOD);
                 guardian.quirk = randomHumanSim(session.rand, guardian);
                 player.quirk = randomHumanSim(session.rand, player);
                 player.guardian = guardian;
@@ -477,7 +477,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#A10000";
             player.class_name = SBURBClassManager.PAGE;
             player.godDestiny = true;
-            player.aspect = Aspects.HEART;
+            player.aspect = Aspects.MILK;
             player.hair  =46;
             player.leftHorn = 11;
             player.rightHorn = 11;
@@ -508,7 +508,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#416600";
             player.class_name = SBURBClassManager.SEER;
             player.godDestiny = true;
-            player.aspect = Aspects.BREATH;
+            player.aspect = Aspects.WINE;
             player.hair  =11;
             player.leftHorn = 57;
             player.rightHorn = 57;
@@ -534,7 +534,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#a25203";
             player.class_name = SBURBClassManager.MAID;
             player.godDestiny = true;
-            player.aspect = Aspects.DOOM;
+            player.aspect = Aspects.SPICE;
             player.hair  =8;
             player.leftHorn = 64;
             player.rightHorn = 64;
@@ -566,7 +566,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#008282";
             player.class_name = SBURBClassManager.SYLPH;
             player.godDestiny = true;
-            player.aspect = Aspects.RAGE;
+            player.aspect = Aspects.ROCK;
             player.hair  =60;
             player.leftHorn = 4;
             player.rightHorn = 6;
@@ -598,7 +598,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#a1a100";
             player.class_name = SBURBClassManager.BARD;
             player.godDestiny = true;
-            player.aspect = Aspects.TIME;
+            player.aspect = Aspects.KNIFE;
             player.hair  =66;
             player.leftHorn = 18;
             player.rightHorn = 18;
@@ -629,7 +629,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#078446";
             player.class_name = SBURBClassManager.WITCH;
             player.godDestiny = true;
-            player.aspect = Aspects.MIND;
+            player.aspect = Aspects.HONEY;
             player.hair  =13;
             player.leftHorn = 24;
             player.rightHorn = 24;
@@ -660,7 +660,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#0021cb";
             player.class_name = SBURBClassManager.HEIR;
             player.godDestiny = true;
-            player.aspect = Aspects.HOPE;
+            player.aspect = Aspects.FRUIT;
             player.hair  =30;
             player.leftHorn = 23;
             player.rightHorn = 23;
@@ -687,7 +687,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#631db4";
             player.class_name = SBURBClassManager.KNIGHT;
             player.godDestiny = true;
-            player.aspect = Aspects.SPACE;
+            player.aspect = Aspects.SPEAR;
             player.hair  =31;
             player.leftHorn = 48;
             player.rightHorn = 48;
@@ -714,7 +714,7 @@ abstract class NonCanonSessions {
             player.class_name = SBURBClassManager.SEER;
             player.godDestiny = true;
             player.isDreamSelf = true;
-            player.aspect = Aspects.TIME;
+            player.aspect = Aspects.KNIFE;
             player.hair  =4;
             player.leftHorn = 2;
             player.rightHorn = 2;
@@ -993,7 +993,7 @@ abstract class NonCanonSessions {
             player.bloodColor = "#ff0000";
             player.class_name = SBURBClassManager.HEIR;
             player.godDestiny = true;
-            player.aspect = Aspects.TIME;
+            player.aspect = Aspects.KNIFE;
             player.deriveSprite = false;
             player.object_to_prototype = new PotentialSprite("Vader", s);
             player.hair  =51;
@@ -1018,7 +1018,7 @@ abstract class NonCanonSessions {
             player.hairColor = "#e0be78";
             player.class_name = SBURBClassManager.WITCH;
             player.godDestiny = true;
-            player.aspect = Aspects.SPACE;
+            player.aspect = Aspects.SPEAR;
             player.hair  =34;
             player.leftHorn = 57;
             player.rightHorn = 57;
@@ -1044,7 +1044,7 @@ abstract class NonCanonSessions {
             player.hairColor = "#ffffff";
             player.class_name = SBURBClassManager.THIEF;
             player.godDestiny = true;
-            player.aspect = Aspects.HOPE;
+            player.aspect = Aspects.FRUIT;
             player.hair  =73;
             player.leftHorn = 64;
             player.rightHorn = 64;
@@ -1070,7 +1070,7 @@ abstract class NonCanonSessions {
             player.hairColor = "#b55c0d";
             player.class_name = SBURBClassManager.WITCH;
             player.godDestiny = true;
-            player.aspect = Aspects.BLOOD;
+            player.aspect = Aspects.BREAD;
             player.hair  =23;
             player.leftHorn = 4;
             player.rightHorn = 6;

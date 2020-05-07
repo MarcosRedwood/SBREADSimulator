@@ -46,7 +46,7 @@ class Knight extends SBURBClass {
     @override
     bool isHelpful = false;
 
-    Knight() : super("Knight", 3, true);
+    Knight() : super("Vine", 3, true);
 
     @override
     bool highHinit() {

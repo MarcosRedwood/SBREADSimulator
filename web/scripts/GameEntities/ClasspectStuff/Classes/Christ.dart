@@ -52,7 +52,7 @@ class Muse extends SBURBClass {
         new AssociatedStat(Stats.SBURB_LORE, 0.1, false)
     ]);
 
-    Muse() : super("Muse", 18, false);
+    Muse() : super("Christ", 18, false);
 
     @override
     void initializeItems() {
